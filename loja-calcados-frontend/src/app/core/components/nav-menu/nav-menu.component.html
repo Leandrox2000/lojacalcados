@@ -1,0 +1,29 @@
+<nav class="menu">
+	<ul #sinopMenu>
+		<li>
+			<a class="submenu-item" [routerLink]="['/listar-massa']" onclick="toggleMenu();" title="Gerar Massa"><i class="fa fa-plus-square"></i> Gerar Massa</a>
+			<a class="submenu-item" [routerLink]="['/listar-solicitacoes']" onclick="toggleMenu();" title="Minhas solicitações"><i class="fa fa-search"></i> Minhas solicitações</a>
+			<a class="submenu-item" [routerLink]="['/listar-servicos-dados']" onclick="toggleMenu();" title="Serviços de Dados"><i class="fa fa-search"></i> Serviços de Dados</a>
+			<!--
+			<a class="submenu-item" [routerLink]="['/listar-usuarios']" onclick="toggleMenu();" title="Lista Usuários"><i class="fas fa-fw fa-tasks"></i> Lista Usuários</a>
+			<a class="submenu-item" [routerLink]="['/api-interaction']" onclick="toggleMenu();" title="API"><i class="fas fa-fw fa-tasks"></i> API</a>
+			<a onclick="toggleSubMenu(this);" title="Histórico" class="submenu" role="button"><i class="fas fa-fw fa-history"></i> Histórico<i class="fas fa-fw fa-caret-down"></i></a>
+			<ul>
+				<li>
+					<a class="submenu-item" [routerLink]="['/consulta-historico']" onclick="toggleMenu();" title="Consultar Histórico"><i class="far fa-envelope"></i> Consultar Histórico</a>
+				</li>
+				<li>
+					<a class="submenu-item" [routerLink]="['/mensagens-recebidas']" onclick="toggleMenu(this);" title="Mensagens Recebidas"><i class="fas fa-inbox"></i> Mensagens Recebidas</a>
+				</li>
+			</ul>
+			-->
+		</li>
+		<li>
+			<a class="submenu-item" [routerLink]="['/listar-log']" onclick="toggleMenu();" title="Visualizar LOG"><i class="fas fa-fw fa-cog"></i> Visualizar LOG</a>
+			<a class="submenu-item" [routerLink]="['/configuracao']" onclick="toggleMenu();" title="Configurações"><i class="fas fa-fw fa-cog"></i> Configurações</a>
+		</li>
+		<li>
+      		<a  class="submenu-item" (click)="logout()" title="Sair" role="button"><i class="fas fa-fw fa-sign-out-alt"></i> Sair</a>
+		</li>
+	</ul>
+</nav>

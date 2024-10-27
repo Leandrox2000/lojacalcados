@@ -1,0 +1,7 @@
+node_modules/
+.vscode/
+.angular/
+.s2i/
+.idea/
+dist/
+target/

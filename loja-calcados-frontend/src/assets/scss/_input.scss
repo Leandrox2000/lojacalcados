@@ -1,0 +1,301 @@
+.ct {
+	height: $bc-tamanho;
+	font-size: $bc-texto-tamanho;
+	border-radius: $bc-raio-borda;
+	padding: 0 $ct-padding;
+	border-width: 1px;
+	border-style: solid;
+	border-color: $cor-gelo-c1;
+	background-color: $cor-branco;
+	color: $cor-grafite;
+	width: 100%;
+	font-weight: $fonte-book;
+}
+
+.ct::placeholder {
+	color: $cor-gelo-e1;
+	opacity: 1;
+}
+
+.ct:disabled {
+	background-color: $cor-gelo-c2;
+}
+
+textarea.ct {
+	height: 86px;
+}
+
+textarea.ct + div.text-end {
+	font-size: 12px;
+}
+
+.ct-g {
+	height: $bc-tamanho-g;
+	font-size: $bc-texto-tamanho-g;
+}
+
+.ct-p {
+	height: $bc-tamanho-p;
+	font-size: $bc-texto-tamanho-p;
+}
+
+/* Labels */
+
+label {
+	font-size: $bc-texto-tamanho;
+	font-weight: $fonte-bold;
+	color: $cor-grafite;
+}
+
+.no-label {
+	padding-top: 24px; /*  Não sei por quê */
+}
+
+/* Input Groups */
+
+.input-group > .ct {
+	position: relative;
+	flex: 1 1 auto;
+	width: 1%;
+	min-width: 0;
+}
+
+.input-group > .bt {
+	background-color: $cor-polar;
+	padding: 0 12px;
+	border-color: $cor-gelo-c1;
+	box-shadow: none;
+}
+
+.input-group > .bt:hover {
+	transform: none;
+	background-color: $cor-gelo-c2;
+}
+
+.input-group > .ct-p + .input-group-append > .input-group-text {
+	font-size: 13px;
+	background-color: $cor-gelo-c2;
+	border-radius: 0 4px 4px 0;
+	color: $cor-grafite;
+	font-weight: $fonte-book;
+	height: $bc-tamanho-p;
+}
+
+/* Radio Buttons e Checkboxes */
+
+.my-radio,
+.my-check {
+    padding-top: 5px;
+}
+
+.my-radio > label,
+.my-check > label {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 16px;
+    font-weight: $fonte-book;
+}
+
+.my-radio > label:last-child,
+.my-check > label:last-child {
+    margin-right: 0;
+}
+
+.my-radio > label > span,
+.my-check > label > span {
+	margin-left: 4px;
+}
+
+.my-radio .fa-check-circle,
+.my-check .fa-check-square {
+	color: $cor-laranja-caixa;
+}
+
+.my-radio .fa-circle,
+.my-check .fa-square {
+	color: $cor-grafite-c3;
+}
+
+.my-radio input:disabled ~ i,
+.my-check input:disabled ~ i {
+	color: $cor-gelo-e1;
+}
+
+.my-radio input[type='radio'],
+.my-radio input[type='radio'] ~ .fa-check-circle,
+.my-radio input[type='radio']:checked ~ .fa-circle,
+.my-check input[type='checkbox'],
+.my-check input[type='checkbox'] ~ .fa-check-square,
+.my-check input[type='checkbox']:checked ~ .fa-square {
+	display: none;
+}
+
+.my-radio input[type='radio']:checked ~ .fa-check-circle,
+.my-check input[type='checkbox']:checked ~ .fa-check-square {
+	display: inline-block;
+}
+
+.my-radio.my-radio-bg {
+	padding-top: 0;
+}
+
+.my-radio.my-radio-bg > label {
+	background-color: $cor-polar;
+	padding: 6px 16px 7px;
+}
+
+.my-radio i,
+.my-check i {
+	background-color: $cor-branco;
+}
+
+.my-radio i {
+	border-radius: 50%;
+}
+
+/* Switch toggle */
+
+$cor-switch-on: $cor-sucesso;
+$cor-switch-off: $cor-gelo-e2;
+
+.my-toggle {
+    display: inline-block;
+    height: 16px;
+    width: 32px;
+}
+
+.my-toggle > span {
+    height: 14px;
+    width: 30px;
+    background: $cor-switch-off;
+    cursor: pointer;
+    border-radius: 26px;
+    position: relative;
+    top: 4px;
+    left: 2px;
+    transition: 0.2s;
+	display: block;
+	text-align: center;
+}
+
+.my-toggle > input[type='checkbox']:checked + span {
+    background: $cor-switch-on;
+}
+
+.my-toggle > input[type='checkbox'] {
+    display: none;
+}
+
+.my-toggle > span > .fas {
+    background: $cor-branco;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    align-items: center;
+    font-size: 8px;
+    color: transparent;
+    border: 2px solid $cor-switch-off;
+    border-radius: 100%;
+    transition: 0.2s;
+    line-height: 13px;
+}
+
+.my-toggle > input[type='checkbox']:checked + span > .fas {
+    border-color: $cor-switch-on;
+    color: $cor-switch-on;
+    left: 14px;
+}
+
+/* Controles especiais */
+
+.ct-cpf-nis {
+	display: flex;
+}
+
+.ct-cpf-nis .my-radio {
+	white-space: nowrap;
+}
+
+.ct-filtrar {
+	position: relative;
+	padding: 0 50px 0 0;
+	background-color: $cor-polar;
+}
+
+.tabela-box-filtro .ct-filtrar {
+	display: inline-block;
+	width: 33%;
+	padding-right: 34px;
+}
+
+.ct-filtrar > input {
+	border-radius: 4px;
+	border: none;
+	height: 100%;
+	width: 100%;
+	padding: 0 16px;
+	background-color: $cor-branco;
+	color: $cor-grafite;
+	font-weight: $fonte-book;
+	border-radius: 4px 0 0 4px;
+}
+
+.ct-filtrar > input::placeholder {
+	font-weight: $fonte-medium;
+}
+
+.ct-filtrar .fas {
+	position: absolute;
+	right: 17px;
+	top: 17px;
+}
+
+.tabela-box-filtro .ct-filtrar .fas {
+	top: 11px;
+	right: 10px;
+}
+
+.ct-periodo {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ct-periodo > div {
+	flex: 1 0 0%;
+	font-size: 13px;
+}
+
+.ct-periodo > div:nth-child(2) {
+	text-align: center;
+	padding-top: 7px;
+	max-width: 40px;
+	flex-shrink: 0;
+}
+
+/* Ajustes para invalid feedback */
+
+.invalid-feedback {
+	color: $cor-goiaba !important;
+	font-size: 11px;
+	font-weight: $fonte-heavy;
+}
+
+.ng-invalid.ng-dirty:not(form) { 
+	border: 1px solid $cor-goiaba;
+}
+
+.ng-invalid.ng-dirty:not(form) ~ .invalid-feedback {
+	display: block;
+}
+
+.ct-periodo .ng-invalid.ng-dirty + .bt.bt-p {
+	border-color: $cor-goiaba;
+	border-radius: 0 4px 4px 0;
+}
+
+.ct-cpf-nis > .my-radio + div {
+	margin-left: 16px;
+	width: 100%;
+}

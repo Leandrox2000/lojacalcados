@@ -1,0 +1,80 @@
+.abas .abas-cabecalho,
+.abas .nav-tabs {
+	list-style-type: none;
+	padding: 0;
+	margin: 16px 8px 0;
+	display: flex;
+	overflow: hidden;
+	border-bottom: none;
+}
+
+/* ???
+.formulario .abas {
+	margin: 0 8px;
+}*/
+
+.abas .abas-cabecalho li
+.abas .nav-tabs li {
+	display: contents;
+}
+
+.abas .abas-cabecalho li + li,
+.abas .nav-tabs li + li {
+	margin-left: 4px;
+}
+
+.abas .abas-cabecalho button,
+.abas .nav-tabs li a {
+	margin-left: 4px;
+	border-bottom: none !important;
+	height: 44px;
+	font-size: 16px;
+	line-height: 42px;
+	padding: 0 24px;
+	border-radius: $formulario-raio $formulario-raio 0 0;
+	color: $cor-azul-caixa;
+	background-color: $cor-branco;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.abas .nav-tabs li a.nav-link.disabled {
+	border-color: $cor-formulario-borda;
+	background-color: rgba(255,255,255,.5);
+	opacity: .5;
+}
+
+.abas .abas-cabecalho button:not(.aba-selecionada):hover,
+.abas .nav-tabs a:not(.active):hover {
+	background-color: $cor-gelo-c2;
+	border-color: $cor-formulario-borda;
+}
+
+.abas .abas-cabecalho .aba-selecionada,
+.abas .nav-tabs a.active {
+	background-color: $cor-azul-caixa;
+	color: $cor-branco;
+}
+
+.abas .abas-cabecalho button,
+.abas .aba-conteudo,
+.abas .nav-tabs a,
+.abas .tab-content {
+	border: $formulario-borda solid $cor-formulario-borda;
+	background-color: $bg-formulario;
+}
+
+.abas .aba-conteudo,
+.abas .tab-content {
+	border-radius: $formulario-raio;
+	padding: $formulario-padding;
+}
+
+.abas .tab-content {
+	position: relative;
+	min-height: 150px;
+	overflow: hidden;
+}
+

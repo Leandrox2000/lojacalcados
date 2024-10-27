@@ -1,0 +1,26 @@
+<h2>Configuração do Sistema</h2>
+<div class="config-section">
+  <form [formGroup]="configForm" (ngSubmit)="submitConfig()" class="config-form">
+    <div>
+      <label for="socketTimeout">Socket Timeout:</label>
+      <input formControlName="socketTimeout" id="socketTimeout" type="number" />
+    </div>
+
+    <div>
+      <label for="connectTimeout">Connect Timeout:</label>
+      <input formControlName="connectTimeout" id="connectTimeout" type="number" />
+    </div>
+
+    <div>
+      <label for="connectRequestTimeout">Connect Request Timeout:</label>
+      <input formControlName="connectRequestTimeout" id="connectRequestTimeout" type="number" />
+    </div>
+
+    <div>
+      <label for="qtdTentativas">Quantidade de Tentativas:</label>
+      <input formControlName="qtdTentativas" id="qtdTentativas" type="number" />
+    </div>
+
+    <button class="btn-primary" type="submit">Salvar Configuração</button>
+  </form>
+</div>

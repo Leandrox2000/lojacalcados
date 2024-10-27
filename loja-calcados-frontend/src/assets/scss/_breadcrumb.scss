@@ -1,0 +1,32 @@
+.migalha {
+    display: none;
+    line-height: $migalha-altura;
+    height: $migalha-altura;
+    color: $migalha-cor;
+    font-size: $migalha-texto-tamanho;
+}
+
+.migalha button {
+    border: none;
+    background: transparent;
+    color: $migalha-botao-cor;
+    height: $migalha-altura;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+.migalha .fa-chevron-right {
+    font-size: $migalha-texto-tamanho - 4px;
+    position: relative;
+    margin: 0 4px;
+}
+
+.migalha span {
+    margin-left: 16px;
+    padding-left: 16px;
+    border-left: 1px solid $cor-gelo;
+    margin-top: ($migalha-altura - 16px) * 0.5;
+    height: 16px;
+    line-height: 16px;
+}

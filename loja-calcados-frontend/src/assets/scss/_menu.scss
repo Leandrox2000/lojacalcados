@@ -1,0 +1,127 @@
+nav.menu {
+    display: block;
+    width: $menu-largura;
+    color: $cor-branco;
+    height: calc(100% - #{$header-altura});
+    position: fixed;
+    top: $header-altura;
+    left: -$menu-largura;
+    transition: left $menu-transicao, box-shadow $menu-transicao;
+    background-color: $cor-azul-caixa;
+    z-index: 1;
+}
+
+.menu-visivel nav.menu {
+    left: 0;
+    box-shadow: 0 4px 8px 6px #00000040;
+}
+
+/*
+nav.menu h2 {
+    font-size: 21px;
+    font-weight: $fonte-medium;
+    color: $cor-cinza;
+    line-height: $header-altura;
+    height: $header-altura;
+    text-align: center;
+    margin-bottom: 0;
+    visibility: hidden;
+}
+*/
+
+nav.menu ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 14px;
+    margin: 0;
+    overflow-y: auto;
+    max-height: calc(100vh - #{$header-altura});
+    border-top: 1px solid $menu-item-cor-separador;
+}
+
+nav.menu ul li:first-child {
+    border-top: none;
+}
+
+nav.menu ul li {
+    border-top: 1px solid $menu-item-cor-separador;
+}
+
+nav.menu ul li a {
+    text-decoration: none;
+    line-height: $menu-item-altura;
+    height: $menu-item-altura;
+    display: block;
+    color: $cor-branco;
+    padding: 0 $menu-item-padding;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}
+
+nav.menu ul li a.submenu-aberto {
+    border-left: 4px solid $cor-laranja-caixa;
+    padding-left: $menu-item-padding - 4px;
+    font-weight: $fonte-heavy;
+}
+
+nav.menu ul li a i.fa-caret-down {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    transition: rotate .3s;
+}
+
+nav.menu ul li a.submenu-aberto i.fa-caret-down {
+    rotate: 180deg;
+}
+
+nav.menu ul li a:hover {
+    color: $cor-branco;
+    background-color: $menu-item-bg-hover;
+}
+
+nav.menu ul li ul {
+    display: none;
+    background-color: #3a48594d;
+    background-color: $cor-azul-caixa-e1;
+}
+
+nav.menu ul li a.submenu-aberto + ul {
+    display: block;
+}
+
+nav.menu ul li ul li a {
+    line-height: $menu-subitem-altura;
+    height: $menu-subitem-altura;
+    padding: 0 $menu-item-padding 0 $menu-subitem-padding;
+}
+
+nav.menu ul li ul li:first-child a,
+nav.menu ul li ul li:last-child a {
+    height: $menu-subitem-altura + $menu-subitem-espacamento;
+}
+
+nav.menu ul li ul li:only-child a {
+    height: $menu-subitem-altura + $menu-subitem-espacamento + $menu-subitem-espacamento;
+}
+
+nav.menu ul li ul li:first-child a {
+    padding-top: $menu-subitem-espacamento;
+}
+
+nav.menu ul li ul li:last-child a {
+    padding-bottom: $menu-subitem-espacamento;
+}
+
+nav.menu ul li ul li + li {
+    border-top: none;
+}
+
+nav.menu ul li ul li a.ativo {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: $cor-laranja-caixa;
+    text-decoration-thickness: 2px;
+}

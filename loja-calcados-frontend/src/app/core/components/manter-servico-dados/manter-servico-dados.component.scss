@@ -1,0 +1,116 @@
+h1 {
+  color: #005ca9;
+  font-size: x-large;
+  font-weight: bold;
+}
+h2 {
+  color: #3a4859;
+  font-size: large;
+  font-weight: bold;
+}
+.red {
+  padding: 10px 0;
+  color: #e8281c;
+}
+table {
+  width: 96%;
+  border: 1px;
+}
+th {
+  align-content: center;
+  text-align: center;
+  height: 50px;
+  font-size: medium;
+  background-color: #005ca9;
+  color: #fff;
+  min-width: 10%;
+}
+td {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+.azul {
+  background-color: #005ca9;
+  border: 1px solid #76bad1;
+  color: #fff;
+  text-decoration: none;
+  width: 30px;
+}
+.azul2 {
+  background-color: #005ca9;
+  border: 1px solid #76bad1;
+  color: #fff;
+  text-decoration: none;
+  width: 182px;
+}
+.laranja1 {
+  background-color: #d87b00;
+  color: #fff;
+  border: 1px solid #76bad1;
+  width: 200px;
+}
+.laranja2 {
+  background-color: #d87b00;
+  color: #fff;
+  border: 1px solid #76bad1;
+  width: 110px;
+  &:disabled {
+    background-color: #ccc;
+  }
+}
+.texto {
+  padding: 5px 5px;
+  width: 225px;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 96%;
+}
+.mat-paginator {
+  width: 96%;
+}
+.my-date {
+  width: 120px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.my-select {
+  border: 1px solid #ced4da;
+}
+input.mat-input-element {
+  box-sizing: inherit;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+}
+.mat-icon-button {
+  width: 0px;
+}
+.chk-margin {
+  margin: 0 10px;
+}
+.mat-expansion-panel-header-title {
+  color: #3A4859;
+  font-weight: bold;
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.example-section {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  height: 60px;
+}

@@ -1,0 +1,44 @@
+/* Definições gerais de layout */
+
+$header-altura: 64px;
+$userinfo-tamanho: 40px;
+$userinfo-texto-tamanho: 17px;
+$body-padding: 15px;
+$main-padding-x: 0;
+$main-padding-y: 0px;
+$botao-menu-tamanho: 64px;
+$menu-largura: 250px;
+$menu-transicao: .33s;
+$menu-item-altura: 54px;
+$menu-subitem-altura: 42px;
+$menu-item-padding: 16px;
+$menu-subitem-padding: 38px;
+$menu-subitem-espacamento: 4px;
+$migalha-altura: 24px;
+$migalha-texto-tamanho: 16px;
+$main-heading-texto-tamanho: 24px;
+$main-sobre-pagina-texto-tamanho: 18px;
+$formulario-padding: 16px;
+$formulario-borda: 2px;
+$formulario-raio: 10px;
+$tabela-texto-tamanho: 13px;
+$tabela-cabecalho-tamanho: $tabela-texto-tamanho - 3px;
+$tabela-rodape-tamanho: $tabela-texto-tamanho;
+$tabela-botao-margem: 8px;
+$tabela-botao-icone-tamanho: 16px;
+$tabela-botao-texto-tamanho: 11px;
+
+/* Definições para botões e controles */
+
+$bc-raio-borda: 4px;
+$bc-texto-tamanho: 14px;
+$bc-texto-tamanho-xp: $bc-texto-tamanho - 2px;
+$bc-texto-tamanho-p: $bc-texto-tamanho - 1px;
+$bc-texto-tamanho-g: $bc-texto-tamanho + 1px;
+$bt-padding: 16px; /* Padding para botões e controles é diferente */
+$ct-padding: 8px;
+$bc-tamanho: 42px;
+$bc-tamanho-xp: $bc-tamanho - 20px;
+$bc-tamanho-p: $bc-tamanho - 8px;
+$bc-tamanho-g: $bc-tamanho + 8px;
+$bt-margem: 8px;

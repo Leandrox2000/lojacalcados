@@ -1,0 +1,175 @@
+form {
+  align-items: baseline;
+  display: flex;
+  padding: 25px;
+  width: max-content;
+    
+  mat-form-field {
+    margin-right: 10px;  
+
+    &#statusMensagem {
+      width: 110px;
+    }
+
+    &#tipo {
+      width: 50px;
+    }
+
+    &.data{
+      margin-top: 15px;
+      width: 110px;
+    }
+
+    &.horario {
+      margin-top: 15px;
+      width: 75px;
+    }
+
+    &#situacao {
+      width: 115px;
+    }
+
+    &#idMensagem,
+    &#idFimAFim {
+      width: 295px;
+    }
+
+    &.valor {
+      width: 130px;
+    }
+
+    &#ispb {
+      width: 110px;
+    }
+
+    &::ng-deep .mat-form-field-wrapper {
+      margin-bottom: -1.25em;
+    }
+  }
+}
+
+th.pointer {
+  cursor: pointer;
+}
+
+.consultar {
+  float: left;
+  margin-top: 20px;
+}
+.container {
+  margin-bottom: 30px;
+}
+  
+table {
+  width: 100%;
+
+  th {
+    padding: 12px; 
+  }
+
+  td {
+    padding: 8px; 
+  }
+}
+
+.search-section {
+  margin-top: 20px
+}
+
+.table-container {
+  max-height: 500px; // Adjust this value based on your needs
+  overflow-y: auto;
+  margin-top: 20px; // Adjust for spacing as needed
+ 
+  table {
+    width: 100%;
+   
+    th, td {
+      padding: 12px; // Example padding, adjust as needed
+    }
+  }
+}
+  
+table mat-table {
+  th.mat-header-cell, td.mat-cell {
+    padding: 120px;
+  }
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+h2.heading {
+  &:before {
+    margin-left: -25px;
+  }
+  padding-bottom: 10px;
+}
+
+table.smaller-size td {
+  font-size: smaller;
+}
+table.smaller-size th {
+  padding-top: 10px;
+  color: rgba(0, 0, 0, 0.54);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+table.table-relacionada {
+  width: 50%;
+  text-align: left;
+}
+
+.red {
+  padding: 10px 0;
+  color: var(--COLOR-RED);
+}
+
+.azul {
+  color: var(--COLOR-AZUL);
+}
+
+.verde {
+  color: var(--COLOR-GREEN);
+}
+
+.grid {
+  padding: 10px 0 25px;
+  display: grid;
+  grid-template-columns: [label] 1fr [value] 2fr;
+
+  .label {
+    grid-column: label;
+    text-align: right;
+  }
+
+  .value {
+    grid-column: value;
+    padding-left: 10px;
+  }
+
+  p {
+    padding: 5px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--COLOR-GELO);
+  }
+}
+
+.span-rigth {
+  padding-top: 13px;
+  float: right;
+}

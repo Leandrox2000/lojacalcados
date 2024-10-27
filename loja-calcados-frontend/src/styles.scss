@@ -1,0 +1,20 @@
+/* Bibliotecas e frameworks */
+@import './lib';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Valores padrão */
+@import './assets/scss/colors';
+@import './assets/scss/variables';
+@import './assets/scss/fonts';
+
+/* Estruturas da página */
+@import './assets/scss/bodymain';
+@import './assets/scss/header';
+@import './assets/scss/menu';
+@import './assets/scss/home';
+@import './assets/scss/breadcrumb';
+@import './assets/scss/table';
+@import './assets/scss/button';
+@import './assets/scss/input';
+@import './assets/scss/modal';
+@import './assets/scss/tabs';

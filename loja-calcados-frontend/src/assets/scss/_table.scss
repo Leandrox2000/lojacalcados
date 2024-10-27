@@ -1,0 +1,329 @@
+.tabela {
+	width: 100%;
+	border-collapse: collapse;
+	color: $tabela-texto-cor;
+	font-size: $tabela-texto-tamanho;
+	font-weight: $fonte-book;
+	margin-top: 16px;
+}
+
+.tabela,
+.tabela > thead > tr > th,
+.tabela > thead > tr > td,
+.tabela > tbody > tr > th,
+.tabela > tbody > tr > td,
+.tabela > tfoot > tr > th,
+.tabela > tfoot > tr > td {
+	border: 1px solid $tabela-borda-cor;
+}
+
+.tabela > thead > tr > th,
+.tabela > thead > tr > td,
+.tabela > tbody > tr > th,
+.tabela > tbody > tr > td,
+.tabela > tfoot > tr > th,
+.tabela > tfoot > tr > td {
+	padding: 12px 16px;
+	line-height: 1.5;
+}
+
+.tabela.tabela-p > thead > tr > th,
+.tabela.tabela-p > thead > tr > td,
+.tabela.tabela-p > tbody > tr > th,
+.tabela.tabela-p > tbody > tr > td,
+.tabela.tabela-p > tfoot > tr > th,
+.tabela.tabela-p > tfoot > tr > td {
+    padding: 8px 12px;
+    line-height: 1.5;
+}
+
+.tabela.tabela-pp > thead > tr > th,
+.tabela.tabela-pp > thead > tr > td,
+.tabela.tabela-pp > tbody > tr > th,
+.tabela.tabela-pp > tbody > tr > td,
+.tabela.tabela-pp > tfoot > tr > th,
+.tabela.tabela-pp > tfoot > tr > td {
+    padding: 6px 8px;
+    line-height: 1.5;
+}
+
+.tabela > thead > tr > th {
+	font-weight: $fonte-heavy;
+	font-weight: $fonte-bold;
+	font-size: $tabela-cabecalho-tamanho;
+	color: $tabela-cabecalho-cor;
+	vertical-align: bottom;
+}
+
+.tabela > tfoot > tr > th {
+	font-weight: $fonte-bold;
+	font-size: $tabela-rodape-tamanho;
+	color: $tabela-rodape-cor;
+	background-color: $tabela-rodape-bg;
+}
+
+.tabela > thead > tr > th.ordenar > a {
+	color: inherit;
+	text-decoration: none;
+	background-image: url('../images/sort.png');
+	background-repeat: no-repeat;
+	background-position: right 3px;
+	padding-right: 10px;
+}
+
+.tabela > thead > tr > th.ordenar.ascendente,
+.tabela > thead > tr > th.ordenar.descendente {
+	background-color: $tabela-ordenacao-bg;
+}
+
+.tabela > thead > tr > th.ordenar.ascendente > a {
+	background-image: url('../images/sort-up.png');
+}
+
+.tabela > thead > tr > th.ordenar.descendente > a {
+	background-image: url('../images/sort-down.png');
+}
+
+.tabela > thead > tr > th.ordenar > a:hover {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+}
+
+.tabela > thead > tr > th.acoes {
+	width: 1px;
+	text-align: center;
+}
+
+.tabela > tbody > tr.inativo {
+	color: $cor-gelo-e1;
+}
+
+table > tbody > tr > td.acoes {
+	text-align: center;
+	padding-top: 0;
+	padding-bottom: 0;
+	white-space: nowrap;
+}
+
+table > tbody > tr > td.acoes > button,
+table > tbody > tr > td.acoes > a {
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	padding: 0;
+}
+
+table > tbody > tr > td.acoes > button:disabled {
+	color: $tabela-botao-desabilitado-cor !important;
+}
+
+table > tbody > tr > td.acoes > button + button,
+table > tbody > tr > td.acoes > button + a,
+table > tbody > tr > td.acoes > a + button,
+table > tbody > tr > td.acoes > a + a {
+	margin-left: $tabela-botao-margem;
+}
+
+table > tbody > tr > td.acoes > button > i,
+table > tbody > tr > td.acoes > a > i {
+	font-size: $tabela-botao-icone-tamanho;
+	position: relative;
+	top: 2px;
+	text-align: center;
+	width: 1.25em;
+}
+
+table > tbody > tr > td.acoes > button > span,
+table > tbody > tr > td.acoes > a > span {
+	display: block;
+	font-weight: $fonte-book;
+	font-size: $tabela-botao-texto-tamanho;
+	line-height: 14px;
+}
+
+table > tbody > tr:hover > td,
+table > tbody > tr:hover > th {
+	background-color: $tabela-hover-bg;
+}
+
+.tabela-responsiva {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.tabela-responsiva > .tabela {
+	margin-top: 0;
+}
+
+/* Box adjacente */
+
+.tabela-box-extra,
+.tabela-box-filtro,
+.tabela-box-paginacao,
+.tabela-box-paginacao .paginacao {
+	border: 1px solid $tabela-borda-cor;
+	padding: 8px 16px;
+}
+
+.tabela-box-extra {
+	padding: 16px 24px;
+}
+
+.tabela-box-filtro,
+.tabela-box-paginacao {
+	padding: 4px;
+	background-color: $tabela-box-bg;
+}
+
+.tabela-box-extra {
+	background-color: $cor-porcelana;
+	border-radius: 4px 4px 0 0;
+}
+
+.tabela-box-extra:not(.tabela + .tabela-box-extra) {
+	border-bottom: none;
+}
+
+.tabela-box-filtro {
+	border-radius: 4px 4px 0 0;
+	border-bottom: none;
+	margin-top: 16px;
+	text-align: right;
+}
+
+.tabela-box-extra + .tabela-box-filtro {
+	margin-top: 0;
+	border-radius: 0;
+}
+
+.tabela-box-extra + .tabela,
+.tabela-box-filtro + .tabela {
+	margin-top: 0;
+}
+
+.tabela + .tabela-box-extra {
+	border-radius: 0 0 4px 4px;
+	border-top: none;
+	padding: 8px 24px;
+}
+
+.tabela-box-paginacao {
+	border-radius: 0 0 4px 4px;
+	border-top: none;
+	margin-bottom: 16px;
+}
+
+.tabela-box-paginacao .paginacao {
+	border-radius: 4px;
+	height: 48px;
+	background-color: $tabela-box-paginacao-bg;
+}
+
+/* Paginação */
+
+.paginacao {
+	display: flex;
+	height: 62px;
+	padding: 16px;
+	width: 100%;
+	font-size: 14px;
+	font-weight: $fonte-book;
+	line-height: 28px;
+}
+
+.paginacao > div {
+	flex: 1;
+	white-space: nowrap;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+/*.paginacao .paginacao-resultados {
+	font-size: 12px;
+	font-weight: $fonte-bold;
+	color: $cor-grafite-c2;
+	padding-top: 2px;
+} */
+
+.paginacao .paginacao-itens {
+	text-align: right;
+}
+
+.paginacao .paginacao-itens select {
+	margin-left: 8px;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid $cor-gelo-e2;
+	font-weight: $fonte-book;
+	background-color: $cor-branco;
+}
+
+.paginacao .paginacao-resultados span,
+.paginacao .paginaca-itens select {
+	color: $cor-preto;
+}
+
+.paginacao > .paginacao-paginas {
+	flex: 3;
+	text-align: center;
+	padding: 0;
+}
+
+.paginacao .paginacao-paginas ul {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0 0 0 8px;
+}
+
+.paginacao .paginacao-paginas ul li {
+	display: inline-block;
+	margin-left: 8px;
+	vertical-align: center;
+}
+
+.paginacao .paginacao-paginas ul li > a,
+.paginacao .paginacao-paginas ul li > button,
+.paginacao .paginacao-paginas ul li > span {
+	display: block;
+	height: 30px;
+	width: 40px;
+	border: 1px solid $cor-gelo-c1;
+	background-color: $cor-branco;
+	color: inherit;
+	border-radius: 4px;
+	font-weight: $fonte-book;
+	padding: 0;
+}
+
+.paginacao .paginacao-paginas ul li > a:hover,
+.paginacao .paginacao-paginas ul li > button:hover {
+	background-color: $cor-gelo-c2;
+}
+
+.paginacao .paginacao-paginas ul li.paginacao-pagina-inativa > a,
+.paginacao .paginacao-paginas ul li.paginacao-pagina-inativa > button,
+.paginacao .paginacao-paginas ul li.paginacao-pagina-inativa > span {
+	color: $cor-gelo-c1;
+}
+
+.paginacao .paginacao-paginas ul li.paginacao-pagina-ativa > a,
+.paginacao .paginacao-paginas ul li.paginacao-pagina-ativa > button,
+.paginacao .paginacao-paginas ul li.paginacao-pagina-ativa > span  {
+	color: $cor-laranja-caixa;
+	border-color: $cor-laranja-caixa;
+}
+
+.paginacao-exportacao {
+	text-align: right;
+}
+
+.paginacao-exportacao a {
+	color: $cor-laranja-caixa;
+}
+
+.paginacao-exportacao a:hover {
+	text-decoration: none;
+	color: $cor-laranja-caixa-e1;
+}

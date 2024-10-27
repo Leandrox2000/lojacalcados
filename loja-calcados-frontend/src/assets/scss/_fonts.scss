@@ -1,0 +1,62 @@
+/* Definições de fontes */
+
+$fonte-book: 300;
+$fonte-medium: 500;
+$fonte-heavy: 700;
+$fonte-bold: 800;
+
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-book.ttf");
+	font-weight: $fonte-book;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-book-italic.ttf");
+	font-weight: $fonte-book;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-medium.ttf");
+	font-weight: $fonte-medium;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-medium-italic.ttf");
+	font-weight: $fonte-medium;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-heavy.ttf");
+	font-weight: $fonte-heavy;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-heavy-italic.ttf");
+	font-weight: $fonte-heavy;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-bold.ttf");
+	font-weight: $fonte-bold;
+}
+@font-face {
+	font-family: "Futura STD";
+	src: url("../fonts/Futura-STD/futura-bold-italic.ttf");
+	font-weight: $fonte-bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Arial Monospace";
+	src: url("../fonts/Arial-Monospace/arial-monospaced-mt.ttf");
+	font-weight: 300;
+	font-style: italic;
+}  
+
+body {
+	font-family: 'Futura STD', Arial, sans-serif;
+}

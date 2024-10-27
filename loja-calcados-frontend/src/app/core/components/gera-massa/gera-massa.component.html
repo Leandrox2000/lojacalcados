@@ -1,0 +1,1018 @@
+<main>
+  <form [formGroup]="gerarForm" class="config-form">
+    <br />
+    <table style="width: 96%">
+      <tr>
+        <td colspan="2">
+          <h1>Geração de Massa de Teste</h1>
+        </td>
+        <td style="text-align: right" colspan="2">
+          <button
+            aria-label="voltar"
+            type="button"
+            class="bt bt-p"
+            style="width: 110px"
+            title="Voltar"
+            (click)="voltar()"
+          >
+            Voltar
+          </button>
+          <button
+            aria-label="prosseguir"
+            type="button"
+            title="Prosseguir"
+            class="bt bt-p bt-secundario laranja1"
+            (click)="abrirModalProsseguir()"
+            onclick="window.scrollTo(0, 1500)"
+          >
+            Prosseguir
+          </button>
+          <div class="invalid-feedback" *ngIf="submitted && gerarForm.invalid">
+            <label>Preencha todos os campos obrigatórios/p></label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4"><hr /></td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label class="form-label">Serviço selecionado</label>
+        </td>
+        <td style="width: 25%">
+          <label class="form-label">Ambiente(s) selecionado(s)</label>
+        </td>
+      </tr>
+
+      <tr style="height: 50px">
+        <td colspan="2">
+          <mat-card style="background: #eafcff">
+            <mat-card-content>{{ descServico }}</mat-card-content>
+          </mat-card>
+        </td>
+        <td style="vertical-align: top">
+          <mat-card style="background: #eafcff">
+            <mat-card-content>{{ ambientes }}</mat-card-content>
+          </mat-card>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <label class="form-label">Tipo de Cadastramento</label
+          ><label class="form-label red">*</label>
+        </td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top">
+          <mat-select
+            formControlName="tipoCadastramento"
+            title="Tipo de Cadastramento"
+            aria-label="Tipo de Cadastramento"
+            class="my-select"
+            name="tipoCadastramento"
+            id="tipoCadastramento"
+            required="true"
+            (ngModelChange)="onChangeTipoCadastramento()"
+          >
+            <mat-option
+              *ngFor="let opcao of listaTipoCadastramento"
+              [value]="opcao.NU_IDNTR_TIPO_MASSA_DADO"
+            >
+              {{ opcao.NO_TIPO_MASSA_DADO }}
+            </mat-option>
+          </mat-select>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4"><hr /></td>
+      </tr>
+
+      <tr class="trRed">
+        <td colspan="4" style="text-align: center; background: #ffd8d8">
+          <label class="red">Atenção:</label>&nbsp;<label
+            >Caso os campos não obrigatórios não sejam preenchidos, este portal
+            os preencherá de forma automática com valores aleatórios.</label
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <label class="form-label">Deseja que:</label
+          ><label class="form-label red">*</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <span class="form-check-label">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="desejaDoi"
+              formControlName="desejaDoi"
+              (ngModelChange)="onChangeDesejaDoi()"
+              value="A"
+            />
+            Estes CPFs sejam cadastrados apenas no SIISO
+          </span>
+          <br />
+          <span class="form-check-label">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="desejaDoi"
+              formControlName="desejaDoi"
+              (ngModelChange)="onChangeDesejaDoi()"
+              value="N"
+            />
+            Estes CPFs sejam cadastrados no SIISO e SICLI
+          </span>
+          <br />
+          <span class="form-check-label">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="desejaDoi"
+              formControlName="desejaDoi"
+              (ngModelChange)="onChangeDesejaDoi()"
+              value="S"
+            />
+            Estes CPFs sejam cadastrados no SIISO e SICLI com a marca DOI (Dados
+            Obrigatórios Incompletos)
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label class="form-label">Situação na Receita:</label
+          ><label class="form-label red">*</label>
+        </td>
+        <td style="width: 186px">
+          <label class="form-label" [hidden]="dadosEspecificos"
+            >CPFs de menor de idade?</label
+          ><label class="form-label red" [hidden]="dadosEspecificos">*</label>
+          <label class="form-label" *ngIf="dadosEspecificos">CPF:</label>
+        </td>
+        <td *ngIf="dadosEspecificos">
+          <label class="form-label">Sexo:</label>
+        </td>
+        <td *ngIf="mostraDataObito">
+          <label class="form-label">Data do Óbito:</label
+          ><label class="form-label red">*</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top">
+          <mat-select
+            [disabled]="situacaoDesabilitado"
+            formControlName="situacao"
+            class="form-control"
+            name="situacao"
+            title="Situação na Receita"
+            aria-label="Situação na Receita"
+            id="situacao"
+            required="true"
+            (ngModelChange)="onChangeSituacao()"
+          >
+            <mat-option
+              *ngFor="let opcao of listaSituacaoReceitaFederal"
+              [value]="opcao.CO_DOMINIO"
+            >
+              {{ opcao.DE_APRESENTACAO_DOMINIO }}
+            </mat-option>
+          </mat-select>
+        </td>
+        <td style="vertical-align: top">
+          <input
+            [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }"
+            *ngIf="dadosEspecificos"
+            formControlName="cpf"
+            class="form-control"
+            type="text"
+            maxlength="14"
+            inputmode="numeric"
+            mask="000.000.000-00"
+            id="cpf"
+            name="cpf"
+            (change)="onChangeCPF($event)"
+          />
+          <mat-error *ngIf="dadosEspecificos && submitted && f.cpf.errors"
+            >CPF Inválido
+          </mat-error>
+          <span class="radio-inline" [hidden]="dadosEspecificos">
+            <input
+              class="form-check-input"
+              type="radio"
+              (ngModelChange)="onChangeMenorIdade()"
+              name="menorIdade"
+              formControlName="menorIdade"
+              value="S"
+            />
+            Sim
+          </span>
+          &nbsp;
+          <span class="radio-inline" [hidden]="dadosEspecificos">
+            <input
+              class="form-check-input"
+              type="radio"
+              (ngModelChange)="onChangeMenorIdade()"
+              name="menorIdade"
+              formControlName="menorIdade"
+              value="N"
+            />
+            Não
+          </span>
+        </td>
+        <td style="vertical-align: top" *ngIf="dadosEspecificos">
+          <mat-select
+            title="Sexo"
+            aria-label="Sexo"
+            placeholder="Selecione"
+            formControlName="sexo"
+            class="form-control"
+          >
+            <mat-option [value]="">Selecione</mat-option>
+            <mat-option
+              *ngFor="let opcao of listaSexo"
+              [value]="opcao.CO_DOMINIO"
+            >
+              {{ opcao.DE_APRESENTACAO_DOMINIO }}
+            </mat-option>
+          </mat-select>
+        </td>
+        <td style="vertical-align: top" *ngIf="mostraDataObito">
+          <input
+            [ngClass]="{ 'is-invalid': submitted && f.obito.errors }"
+            class="form-control"
+            required="true"
+            type="date"
+            size="20"
+            maxlength="10"
+            aria-label="Data do Óbito"
+            [min]="minDate"
+            [max]="maxDate"
+            formControlName="obito"
+          />
+          <br />
+          <mat-error
+            *ngIf="submitted && gerarForm.controls.obito.errors?.required"
+            >Obrigatório&nbsp;
+          </mat-error>
+        </td>
+      </tr>
+
+      <tr *ngIf="dadosEspecificos">
+        <td colspan="2"><label class="form-label">Nome da pessoa:</label></td>
+        <td>
+          <label class="form-label">Data de nascimento:</label>
+        </td>
+      </tr>
+
+      <tr *ngIf="dadosEspecificos">
+        <td colspan="2">
+          <input
+            formControlName="nomePessoa"
+            aria-label="Nome da pessoa"
+            class="form-control"
+            type="text"
+            maxlength="100"
+            id="nomePessoa"
+            name="nomePessoa"
+          />
+        </td>
+        <td style="vertical-align: top">
+          <input
+            type="date"
+            size="20"
+            maxlength="10"
+            aria-label="Data de nascimento"
+            class="form-control"
+            [min]="minDate"
+            [max]="maxDate"
+            formControlName="nascimento"
+          />
+        </td>
+      </tr>
+
+      <tr *ngIf="dadosEspecificos">
+        <td colspan="2"><label class="form-label">Nome da mãe:</label></td>
+      </tr>
+
+      <tr *ngIf="dadosEspecificos">
+        <td colspan="2">
+          <input
+            formControlName="nomeMae"
+            aria-label="Nome da mãe"
+            class="form-control"
+            type="text"
+            maxlength="100"
+            id="nomeMae"
+            name="nomeMae"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <label class="form-label">Deseja vincular NIS a este(s) CPF(s)?</label
+          ><label class="form-label red">*</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="text-align: left">
+          <span class="radio-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="nis"
+              formControlName="nis"
+              value="S"
+            />
+            Sim
+          </span>
+          &nbsp;
+          <span class="radio-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="nis"
+              formControlName="nis"
+              value="N"
+            />
+            Não
+          </span>
+        </td>
+      </tr>
+
+      <!-- tr>
+        <td colspan="4">
+          <mat-accordion *ngIf="dadosEspecificos">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Dados </mat-panel-title>
+              </mat-expansion-panel-header>
+              <table style="width: 100%">
+                <tr>
+                  <td style="width: 33%">
+                    <label class="form-label">Agência:</label>
+                  </td>
+                  <td>
+                    <label class="form-label">Gerente responsável:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Segmento:</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Selecione"
+                      aria-label="Agência"
+                      title="Agência"
+                      [formControl]="agencia"
+                      matInput
+                      class="form-control"
+                      [matAutocomplete]="autoAgencia"
+                    />
+                    <mat-autocomplete #autoAgencia="matAutocomplete">
+                      <mat-option
+                        *ngFor="let opcao of filteredAgencia | async"
+                        [value]="opcao"
+                      >
+                        {{ opcao }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Selecione"
+                      aria-label="Gerente responsável"
+                      title="Gerente responsável"
+                      [formControl]="gerente"
+                      matInput
+                      class="form-control"
+                      [matAutocomplete]="autoGerente"
+                    />
+                    <mat-autocomplete #autoGerente="matAutocomplete">
+                      <mat-option
+                        *ngFor="let opcao of filteredGerente | async"
+                        [value]="opcao"
+                      >
+                        {{ opcao }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </td>
+                  <td>
+                    <mat-select
+                      title="Segmento"
+                      aria-label="Segmento"
+                      placeholder="Selecione"
+                      formControlName="segmento"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaSegmentos"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr -->
+
+      <tr>
+        <td colspan="4">
+          <mat-accordion *ngIf="dadosEspecificos && !marcaDoi">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Dados Pessoais</mat-panel-title>
+              </mat-expansion-panel-header>
+              <table style="width: 100%">
+                <tr>
+                  <td style="width: 33%">
+                    <label class="form-label">Naturalidade UF:</label>
+                  </td>
+                  <td>
+                    <label class="form-label">Naturalidade localidade:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Estado Civil:</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-select
+                      title="Naturalidade UF"
+                      aria-label="Naturalidade UF"
+                      placeholder="Selecione"
+                      formControlName="naturalidade"
+                      class="form-control"
+                      (ngModelChange)="onChangeNaturalidade()"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaNaturalidadeUF"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_CONTEUDO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Selecione"
+                      aria-label="Naturalidade localidade"
+                      title="Naturalidade localidade"
+                      [formControl]="natLocalidade"
+                      matInput
+                      class="form-control"
+                      [matAutocomplete]="autoNatLocalidade"
+                    />
+                    <mat-autocomplete #autoNatLocalidade="matAutocomplete">
+                      <mat-option
+                        *ngFor="let opcao of filteredNatLocalidade | async"
+                        [value]="opcao"
+                      >
+                        {{ opcao }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </td>
+                  <td>
+                    <mat-select
+                      title="Estado Civil"
+                      aria-label="Estado Civil"
+                      placeholder="Selecione"
+                      formControlName="estadoCivil"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaEstadoCivil"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <mat-accordion *ngIf="dadosEspecificos && !marcaDoi">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Meio de Comunicação</mat-panel-title>
+              </mat-expansion-panel-header>
+              <table style="width: 100%">
+                <tr>
+                  <td style="width: 33%">
+                    <label class="form-label">Tipo Telefone:</label>
+                  </td>
+                  <td>
+                    <label class="form-label">Prefixo:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Número (sem traços):</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-select
+                      [disabled]="true"
+                      title="Tipo"
+                      aria-label="Tipo"
+                      placeholder="Selecione"
+                      formControlName="meioTipo"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaMeioTipo"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <mat-select
+                      title="Prefixo"
+                      aria-label="Prefixo"
+                      placeholder="Selecione"
+                      formControlName="meioPrefixo"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaMeioPrefixo"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <input
+                      formControlName="meioNumero"
+                      class="form-control"
+                      type="text"
+                      maxlength="9"
+                      aria-label="Número (sem traços)"
+                      id="numero"
+                      name="numero"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 33%">
+                    <label class="form-label">Tipo E-mail:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">E-mail:</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-select
+                      [disabled]="true"
+                      title="Tipo E-mail"
+                      aria-label="Tipo E-mail"
+                      placeholder="Selecione"
+                      formControlName="meioTipoMail"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaMeioTipo"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <input
+                      formControlName="email"
+                      placeholder="email@example.com"
+                      class="form-control"
+                      type="text"
+                      aria-label="E-mail"
+                      maxlength="100"
+                      [attr.disabled]="true"
+                      id="email"
+                      name="email"
+                    />
+                    <mat-error *ngIf="submitted && f.email.hasError('email')">
+                      E-mail inválido
+                    </mat-error>
+                  </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <mat-accordion *ngIf="dadosEspecificos && !marcaDoi">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Endereço</mat-panel-title>
+              </mat-expansion-panel-header>
+              <table style="width: 100%">
+                <tr>
+                  <td style="width: 33%">
+                    <label class="form-label">CEP:</label>
+                  </td>
+                  <td>
+                    <label class="form-label">Tipo de logradouro:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Logradouro:</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      formControlName="cep"
+                      class="form-control"
+                      type="text"
+                      maxlength="10"
+                      aria-label="CEP"
+                      inputmode="numeric"
+                      mask="00000-000"
+                      id="cep"
+                      name="cep"
+                      (ngModelChange)="onChangeCEP()"
+                    />
+                  </td>
+                  <td>
+                    <mat-select
+                      title="Tipo de logradouro"
+                      aria-label="Tipo de logradouro"
+                      placeholder="Selecione"
+                      formControlName="tipoLogradouro"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaTipoLogradouro"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <input
+                      formControlName="logradouro"
+                      aria-label="Logradouro"
+                      class="form-control"
+                      type="text"
+                      maxlength="100"
+                      id="logradouro"
+                      name="logradouro"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 33%">
+                    <label class="form-label">Bairro:</label>
+                  </td>
+                  <td>
+                    <label class="form-label">UF:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Município:</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      formControlName="bairro"
+                      class="form-control"
+                      aria-label="Bairro"
+                      type="text"
+                      maxlength="100"
+                      id="bairro"
+                      name="bairro"
+                    />
+                  </td>
+                  <td>
+                    <mat-select
+                      title="UF"
+                      aria-label="UF"
+                      placeholder="Selecione"
+                      formControlName="uf"
+                      class="form-control"
+                      (ngModelChange)="onChangeUF()"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaUfs"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_CONTEUDO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Selecione"
+                      aria-label="Município"
+                      title="Município"
+                      [formControl]="municipio"
+                      matInput
+                      class="form-control"
+                      [matAutocomplete]="autoMunicipio"
+                    />
+                    <mat-autocomplete #autoMunicipio="matAutocomplete">
+                      <mat-option
+                        *ngFor="let opcao of filteredMunicipio | async"
+                        [value]="opcao"
+                      >
+                        {{ opcao }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <mat-accordion *ngIf="dadosEspecificos && !marcaDoi">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Ocupação - Renda</mat-panel-title>
+              </mat-expansion-panel-header>
+              <table style="width: 100%">
+                <tr>
+                  <td>
+                    <label class="form-label">Tipo de Renda:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Ocupação Comercial:</label>
+                  </td>
+                  <td style="width: 33%">
+                    <label class="form-label">Valor da Renda:</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <mat-select
+                      title="Tipo de Renda"
+                      aria-label="Tipo de Renda"
+                      placeholder="Selecione"
+                      formControlName="rendaTipo"
+                      (ngModelChange)="listarOcupacao()"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaTipoRenda"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <mat-select
+                      title="Ocupação Comercial"
+                      aria-label="Ocupação Comercial"
+                      placeholder="Selecione"
+                      formControlName="rendaOcupacao"
+                      class="form-control"
+                    >
+                      <mat-option [value]="">Selecione</mat-option>
+                      <mat-option
+                        *ngFor="let opcao of listaOcupacao"
+                        [value]="opcao.CO_DOMINIO"
+                      >
+                        {{ opcao.DE_APRESENTACAO_DOMINIO }}
+                      </mat-option>
+                    </mat-select>
+                  </td>
+                  <td>
+                    <input
+                      formControlName="valorRenda"
+                      class="form-control"
+                      aria-label="Valor da Renda"
+                      type="text"
+                      currencyMask
+                      min="1000"
+                      [options]="{
+                        align: 'right',
+                        prefix: 'R$ ',
+                        thousands: '.',
+                        decimal: ',',
+                        allowNegative: false
+                      }"
+                      maxlength="50"
+                      id="valorRenda"
+                      name="valorRenda"
+                    />
+                    <mat-error
+                      *ngIf="submitted && f.valorRenda.errors?.required"
+                      >Obrigatório
+                    </mat-error>
+                    <mat-error *ngIf="submitted && f.valorRenda.errors?.min"
+                      >Mínimo de R$ 1.000,00
+                    </mat-error>
+                  </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <label class="form-label"
+            >Informe a quantidade de Registros a serem gerados com as características acima:</label
+          ><label class="form-label red">*</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            required="true"
+            class="form-control"
+            style="width: 150px"
+            type="number"
+            title="Quantidade de Registros a serem gerados com as características acima"
+            aria-label="Quantidade de Registros a serem gerados com as características acima"
+            id="qtde"
+            name="qtde"
+            min="1"
+            max="{{ qtdeMaxima }}"
+            maxlength="5"
+            formControlName="qtde"
+            (change)="onChangeQtdeMaxima()"
+            [ngClass]="{ 'is-invalid': submitted && f.qtde.errors }"
+          />
+          <mat-error *ngIf="submitted && f.qtde.errors?.required"
+            >Obrigatório
+          </mat-error>
+          <mat-error *ngIf="submitted && f.qtde.errors?.min"
+            >Mínimo de 1
+          </mat-error>
+          <mat-error *ngIf="submitted && f.qtde.errors?.max"
+            >Máximo de {{ qtdeMaxima }}
+          </mat-error>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <label class="form-label"
+            >Inclua uma ou mais matrículas que terão acesso ao resultado desta massa (além de você):</label
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="3">
+          <input
+            [attr.disabled]="true"
+            formControlName="strUsuarios"
+            aria-label="Inclua uma ou mais matrículas que terão acesso ao resultado desta massa"
+            class="form-control"
+            type="text"
+            id="strUsuarios"
+            name="strUsuarios"
+            [ngClass]="{ 'is-invalid': submitted && f.strUsuarios.errors }"
+            placeholder="Ex.: CXXXX, FXXXX..."
+          />
+        </td>
+        <td>
+          <button
+            class="bt bt-p"
+            aria-label="buscar matrículas"
+            title="buscar matrículas"
+            (click)="buscarUsuarios()"
+          >
+            <svg
+              style="cursor: pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="#005ca9"
+              class="bi bi-person-add"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+              />
+              <path
+                d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"
+              />
+            </svg>
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <label class="form-label"
+            >Em qual Projeto ou Demanda essa massa será usada?</label
+          ><label class="form-label red">*</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="3">
+          <input
+            required="true"
+            class="form-control"
+            type="text"
+            id="noDemandaUtzcoMassaDado"
+            name="noDemandaUtzcoMassaDado"
+            formControlName="noDemandaUtzcoMassaDado"
+            aria-label="Em qual Projeto ou Demanda essa massa será usada?"
+            placeholder="Ex.: Open Finance, Desenrola Brasil, Migração de Contas NSGD ..."
+            [ngClass]="{
+              'is-invalid': submitted && f.noDemandaUtzcoMassaDado.errors
+            }"
+          />
+          <mat-error
+            *ngIf="submitted && f.noDemandaUtzcoMassaDado.errors?.required"
+            >Obrigatório
+          </mat-error>
+          <mat-error
+            *ngIf="submitted && f.noDemandaUtzcoMassaDado.errors?.minlength"
+            >Mínimo de 7 caracteres
+          </mat-error>
+          <mat-error
+            *ngIf="submitted && f.noDemandaUtzcoMassaDado.errors?.maxlength"
+            >Máximo de 70 caracteres
+          </mat-error>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4"><br /></td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <button
+            title="Voltar"
+            aria-label="voltar"
+            type="button"
+            class="bt bt-p"
+            style="width: 110px"
+            (click)="voltar()"
+          >
+            Voltar
+          </button>
+          <button
+            title="Prosseguir"
+            aria-label="Prosseguir"
+            type="button"
+            class="bt bt-p bt-secundario laranja1"
+            (click)="abrirModalProsseguir()"
+          >
+            Prosseguir
+          </button>
+          <div class="invalid-feedback" *ngIf="submitted && gerarForm.invalid">
+            <label>Preencha todos os campos obrigatórios</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4"><br /></td>
+      </tr>
+    </table>
+  </form>
+</main>

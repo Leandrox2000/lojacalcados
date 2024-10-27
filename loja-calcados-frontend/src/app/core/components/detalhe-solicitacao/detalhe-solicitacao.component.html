@@ -1,0 +1,362 @@
+<main>
+  <form class="config-form">
+    <br />
+    <table style="width: 96%">
+      <tr>
+        <td colspan="4">
+          <h1>Detalhes da Solicitação de Massa de Teste</h1>
+        </td>
+        <td colspan="2" style="text-align: right">
+          <button type="button" class="bt bt-p azul" (click)="downloadFile()">
+            Fazer Download
+          </button>
+          <button
+            type="button"
+            class="bt bt-p"
+            style="width: 110px"
+            (click)="voltar()"
+          >
+            Voltar
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6"><hr /></td>
+      </tr>
+
+      <tr>
+        <td
+          style="
+            border-color: #ced1d5;
+            border-right-width: 1px;
+            vertical-align: middle;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          "
+        >
+          Usuário solicitante<br />
+          <label class="form-label">{{ solicitacao.NO_USUARIO }}</label>
+        </td>
+        <td
+          style="
+            border-color: #ced1d5;
+            border-right-width: 1px;
+            vertical-align: middle;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          "
+        >
+          Matrícula do Solicitante<br />
+          <label class="form-label">{{ solicitacao.CO_USUARIO }}</label>
+        </td>
+        <td
+          style="
+            border-color: #ced1d5;
+            border-right-width: 1px;
+            vertical-align: middle;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          "
+        >
+          Unidade do Solicitante<br />
+          <label class="form-label">{{ solicitacao.NO_UNIDADE_CAIXA }}</label>
+        </td>
+        <td
+          style="
+            border-color: #ced1d5;
+            border-right-width: 1px;
+            vertical-align: middle;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          "
+        >
+          Data da solicitação<br />
+          <label class="form-label">{{
+            solicitacao.DT_ABERTURA_FORMATADA
+          }}</label>
+        </td>
+        <td
+          style="
+            border-color: #ced1d5;
+            border-right-width: 1px;
+            vertical-align: middle;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          "
+        >
+          Situação do atendimento<br />
+          <label class="form-label">{{ solicitacao.IC_SITUACAO_SLTCO }}</label>
+        </td>
+        <td
+          style="
+            vertical-align: middle;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          "
+        >
+          ID<br />
+          <label class="form-label">{{
+            solicitacao.NU_IDNTR_SLTCO_MASSA_DADO
+          }}</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="6"><hr /></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Serviço solicitado</label>
+        </td>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Linha de Atuação Negocial</label>
+        </td>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Ambientes solicitados</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.NO_SERVICO_DADO }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.NO_AREA_NEGOCIO }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.AMBIENTES }}"
+            disabled
+            size="50"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Tipo de cadastramento</label>
+        </td>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Sistemas vinculados ao serviço</label>
+        </td>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Projeto/Demanda alvo da solicitação</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.NO_TIPO_MASSA_DADO }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.SISTEMAS }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.NO_DEMANDA_UTZCO_MASSA_DADO }}"
+            disabled
+            size="50"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Quantidade de registros</label>
+        </td>
+        <td colspan="4" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Matrículas com acesso ao resultado da massa:</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.QT_REGISTRO_SLTCO }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td colspan="4" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.USUARIOS }}"
+            disabled
+            size="105"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Data/Hora Início do atendimento</label>
+        </td>
+        <td colspan="2" style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Data/Hora Fim do atendimento</label>
+        </td>
+        <td style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Tempo de atendimento (minutos)</label>
+        </td>
+        <td style="vertical-align: bottom; padding-top: 10px">
+          <label class="form-label">Número do RTC (SQ), se pertinente</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.DH_INICIO_ATENDIMENTO_SLTCO }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td colspan="2" style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.DH_FIM_ATENDIMENTO_SLTCO }}"
+            disabled
+            size="50"
+          />
+        </td>
+        <td style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.QT_MINUTO_ATENDIMENTO }}"
+            disabled
+            size="20"
+          />
+        </td>
+        <td style="width: 100%; vertical-align: top">
+          <input
+            type="text"
+            value="{{ solicitacao.NU_SERVICO_QUALIDADE }}"
+            disabled
+            size="20"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="6">
+          <br />
+          <hr />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <h2>Dados da solicitação</h2>
+        </td>
+        <td colspan="2" style="text-align: right">
+          <button
+            type="button"
+            class="bt bt-p bt-secundario laranja1"
+            (click)="voltar()"
+          >
+            Visualizar auditoria
+          </button>
+        </td>
+      </tr>
+    </table>
+    <table style="width: 100%;">
+      <tr>
+        <td>
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Valores informados </mat-panel-title>
+              </mat-expansion-panel-header>
+              <table>
+                <thead>
+                  <th
+                    *ngFor="let colum of listaAtributos"
+                    style="vertical-align: top;"
+                  >
+                    {{ colum.LABEL }}
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      *ngFor="let group of listaAtributos"
+                      style="vertical-align: top; min-width: 100px;"
+                    >
+                      <dl>
+                        <dd *ngFor="let item of group.LISTA">
+                          {{ item.LABEL }}
+                        </dd>
+                      </dl>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <table style="width: 100%;">
+      <tr>
+        <td>
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Massa de teste gerada</mat-panel-title>
+              </mat-expansion-panel-header>
+              <table style="width: 100%">
+                <thead>
+                  <th
+                    *ngFor="let colum of listaMassa"
+                    style="vertical-align: top;"
+                  >
+                    {{ colum.LABEL }}
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      *ngFor="let group of listaMassa"
+                      style="vertical-align: top; min-width: 100px;"
+                    >
+                      <dl>
+                        <dd *ngFor="let item of group.LISTA">
+                          {{ item.LABEL }}
+                        </dd>
+                      </dl>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+    </table>
+  </form>
+</main>

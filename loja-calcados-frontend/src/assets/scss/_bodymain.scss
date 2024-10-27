@@ -1,0 +1,356 @@
+/* Estilos gerais para body e main */
+
+body {
+	padding: $body-padding;
+	padding-top: ($body-padding + $header-altura);
+	height: 100%;
+	background-color: #fff;
+	color: #3A4859;
+	overflow-y: auto;
+}
+
+body:not(.untouched) {
+	transition: padding-left $menu-transicao;
+}
+
+body.menu-visivel {
+	padding-left: ($body-padding + $menu-largura);
+}
+
+main {
+	padding: $main-padding-x;
+	padding-top: $main-padding-y;
+	padding-bottom: 0;
+}
+
+main h2 {
+	font-weight: $fonte-heavy;
+	font-weight: $fonte-bold;
+	color: $main-heading-cor;
+	font-size: $main-heading-texto-tamanho;
+	margin-bottom: 0;
+}
+
+main .sobre-pagina {
+	font-weight: $fonte-medium;
+	color: $main-sobre-pagina-cor;
+	font-size: $main-sobre-pagina-texto-tamanho;
+	margin-top: 8px;
+	margin-bottom: 0;
+}
+
+main .formulario {
+	margin-top: 10px;
+	padding: 16px;
+	background-color: $bg-formulario;
+	border: $formulario-borda solid $cor-formulario-borda;
+	border-radius: $formulario-raio;
+}
+
+main .formulario .formulario {
+	margin-bottom: 16px;
+}
+
+a {
+	color: $link-texto-cor;
+}
+
+a:hover {
+	color: $link-hover-cor;
+}
+
+/* Mensagem de nada pesquisado */
+
+.nada-pesquisado {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	text-align: center;
+	color: $cor-grafite-c2;
+}
+
+.nada-pesquisado-icone {
+	font-size: 64px;
+	margin-bottom: 1rem;
+}
+
+.nada-pesquisado-texto {
+	font-size: 20px;
+}
+
+/* Infobox e boxes recolhível e não recolhível */
+
+.infobox,
+.box-recolhivel,
+.box-nao-recolhivel {
+	box-shadow: $sombra-infobox;
+	padding: 16px;
+	border-radius: 4px;
+}
+
+.box-historico {
+	box-shadow: $sombra-infobox;
+	padding: 16px 16px 0;
+	border-radius: 4px;
+}
+
+.tabela-box-extra .box-historico,
+.box-historico.box-historico-linha {
+	background-color: $cor-branco;
+	border: 1px solid $tabela-borda-cor;
+	box-shadow: none;
+	border-radius: 3px;
+	padding-top: 12px;
+}
+
+.box-recolhivel + .box-recolhivel,
+.box-nao-recolhivel + .box-nao-recolhivel {
+	margin-top: 24px;
+}
+
+.box-recolhivel .box-recolhivel-conteudo {
+	display: none;
+	margin-top: 16px;
+}
+
+.box-historico .box-historico-conteudo {
+	display: none;
+	padding-bottom: 16px;
+}
+
+.box-recolhivel .box-recolhivel-conteudo-alternativo {
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid $cor-gelo-c1;
+}
+
+.box-recolhivel.aberto .box-recolhivel-conteudo,
+.box-historico.aberto .box-historico-conteudo {
+	display: block;
+}
+
+.box-recolhivel.aberto .box-recolhivel-conteudo-alternativo {
+	display: none;
+}
+
+.box-recolhivel .box-recolhivel-titulo,
+.box-historico .box-historico-titulo,
+.box-nao-recolhivel .box-nao-recolhivel-titulo {
+	margin: 0;
+}
+
+.box-historico .box-historico-titulo {
+	font-size: 20px;
+}
+
+.box-recolhivel.aberto .box-recolhivel-titulo,
+.box-nao-recolhivel .box-nao-recolhivel-titulo {
+	padding-bottom: 16px;
+}
+
+.titulo {
+	margin-bottom: 16px;
+}
+
+.box-recolhivel.aberto .box-recolhivel-titulo,
+.box-historico.aberto .box-historico-titulo,
+.box-nao-recolhivel .box-nao-recolhivel-titulo {
+	border-bottom: 1px solid $cor-gelo-c1;
+}
+
+.titulo,
+.box-recolhivel .box-recolhivel-titulo button,
+.box-nao-recolhivel .box-nao-recolhivel-titulo span {
+	font-size: 20px;
+	line-height: 24px;
+	color: $cor-azul-caixa;
+	border-left: 6px solid $cor-turquesa !important;
+	padding: 0 0 0 14px;
+}
+
+.subtitulo {
+	font-size: 16px;
+	font-weight: $fonte-bold;
+	color: $cor-azul-caixa;
+	margin-bottom: 12px;
+	border-left: 6px solid $cor-turquesa;
+	padding-left: 12px;
+}
+
+.box-historico .box-historico-titulo button {
+	font-size: 14px;
+	line-height: 18px;
+	color: $cor-grafite;
+	padding: 0 0 18px;
+	text-transform: uppercase;
+}
+
+.tabela-box-extra .box-historico .box-historico-titulo button {
+	padding: 0 0 14px;
+}
+
+.box-recolhivel .box-recolhivel-titulo button,
+.box-historico .box-historico-titulo button,
+.box-nao-recolhivel .box-nao-recolhivel-titulo span {
+	border: none;
+	font-weight: $fonte-bold;
+	background-color: transparent;
+	width: 100%;
+	text-align: left;
+}
+
+.titulo {
+	font-weight: $fonte-bold;
+}
+
+.box-recolhivel .box-recolhivel-titulo button .fa-chevron-up,
+.box-recolhivel .box-recolhivel-titulo button .fa-chevron-down,
+.box-historico .box-historico-titulo button .fa-chevron-up,
+.box-historico .box-historico-titulo button .fa-chevron-down {
+	float: right;
+}
+
+.box-recolhivel .box-recolhivel-titulo button .fa-chevron-up,
+.box-historico .box-historico-titulo button .fa-chevron-up {
+	display: none;
+}
+
+.box-recolhivel.aberto .box-recolhivel-titulo button .fa-chevron-up,
+.box-historico.aberto .box-historico-titulo button .fa-chevron-up {
+	display: inline-block;
+}
+
+.box-recolhivel.aberto .box-recolhivel-titulo button .fa-chevron-down,
+.box-historico.aberto .box-historico-titulo button .fa-chevron-down {
+	display: none;
+}
+
+.infobox {
+	background-color: $bg-infobox;
+	font-size: 14px;
+	display: flex;
+	position: relative;
+}
+
+.infobox > div {
+	flex-grow: 1;
+	white-space: nowrap;
+}
+
+.infobox > .infobox-icone {
+	padding-top: 5px;
+	padding-left: 10px;
+}
+
+.infobox .fa-user-circle {
+	color: $cor-infobox-icone;
+	font-size: 32px;
+}
+
+.infobox label {
+	font-weight: 900;
+}
+
+.infobox label,
+.infobox p {
+	color: $cor-infobox;
+}
+
+.infobox p {
+	margin-bottom: 0;
+}
+
+.infobox-conteudo {
+	width: 100%;
+	display: table;
+}
+
+.infobox-icone + .infobox-conteudo {
+	margin-left: 28px;
+}
+
+.infobox-conteudo > div {
+	display: table-row;
+}
+
+.infobox-conteudo > div > div {
+	display: table-cell;
+}
+
+.infobox-conteudo > div + div > div {
+	padding-top: 16px;
+}
+
+.infobox-botoes {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+}
+
+/* Box de alerta */
+
+.box-alerta {
+	padding: 2rem 16px;
+	text-align: center;
+	color: $cor-grafite-c2;
+	background-color: $cor-polar;
+	border: 1px solid $cor-gelo-c1;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+/* Auxiliares */
+
+.reais {
+	font-size: .5rem;
+	vertical-align: text-top;
+}
+
+.text-book   { font-weight: $fonte-book; }
+.text-normal { font-weight: $fonte-medium; }
+.text-heavy  { font-weight: $fonte-heavy; }
+.text-bold   { font-weight: $fonte-bold; }
+
+/* Ajustes para tooltips */
+
+$bg-tooltip: $cor-azul-caixa-e1;
+$bg-tooltip: $cor-gelo-c3;
+$tooltip-arrow: $cor-gelo;
+$fg-tooltip: $cor-preto;
+$tooltip-max-width: 400px;
+
+.tooltip {
+	font-family: "Futura", sans-serif;
+	line-height: 1.5;
+}
+
+.bs-tooltip-auto[data-popper-placement^="top"] .tooltip-arrow::before, .bs-tooltip-top .tooltip-arrow::before {
+	border-top-color: $tooltip-arrow;
+}
+
+.bs-tooltip-auto[data-popper-placement^="bottom"] .tooltip-arrow::before, .bs-tooltip-bottom .tooltip-arrow::before {
+	border-bottom-color: $tooltip-arrow;
+}
+
+.bs-tooltip-auto[data-popper-placement^="right"] .tooltip-arrow::before, .bs-tooltip-end .tooltip-arrow::before {
+	border-right-color: $tooltip-arrow;
+}
+
+.bs-tooltip-auto[data-popper-placement^="left"] .tooltip-arrow::before, .bs-tooltip-start .tooltip-arrow::before {
+	border-left-color: $tooltip-arrow;
+}
+
+.tooltip-inner {
+	color: $fg-tooltip;
+	border: 1px solid $tooltip-arrow;
+    background-color: $bg-tooltip;
+	padding: 16px 16px;
+	border-radius: 4px;
+	max-width: $tooltip-max-width;
+	font-weight: $fonte-book;
+}
+
+/* Ajustes para datepicker */
+
+.bs-datepicker-container {
+  padding: 0 !important;
+}

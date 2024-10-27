@@ -1,0 +1,876 @@
+<main>
+  <form [formGroup]="manterForm" class="config-form">
+    <br />
+    <table style="width: 96%">
+      <tr>
+        <td colspan="3">
+          <h1>{{ titulo }}</h1>
+        </td>
+        <td style="text-align: right">
+          <button
+            type="button"
+            class="bt bt-p"
+            style="width: 110px"
+            (click)="voltar()"
+          >
+            Voltar
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4"><hr /></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="width: 50%">
+          <label class="form-label" for="nomeServico">Nome do Serviço</label
+          ><label class="form-label red">*</label>
+        </td>
+        <td colspan="2">
+          <label class="form-label" for="negocial"
+            >Linha de Atuação Negocial</label
+          >
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input
+            [disabled]="desabilitado"
+            formControlName="nomeServico"
+            aria-label="Nome do Serviço"
+            class="form-control"
+            type="text"
+            required="true"
+            maxlength="200"
+            name="nameServico"
+            [ngClass]="{ 'is-invalid': submitted && f.nomeServico.errors }"
+          />
+          <mat-error *ngIf="submitted && f.nomeServico.errors?.required"
+            >Obrigatório
+          </mat-error>
+          <mat-error *ngIf="submitted && f.nomeServico.errors?.maxlength"
+            >Máximo de 200
+          </mat-error>
+        </td>
+        <td colspan="2">
+          <input
+            [disabled]="desabilitado"
+            formControlName="negocial"
+            aria-label="Linha de Atuação Negocial"
+            class="form-control"
+            type="text"
+            maxlength="100"
+            name="negociol"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Serviço Ativo</label></td>
+        <td><label class="form-label">Serviço Automatizado</label></td>
+        <td>
+          <label class="form-label">Ordem de Apresentação do Serviço</label>
+        </td>
+        <td>
+          <label class="form-label"
+            >Limite máximo de registros gerados pelo serviço</label
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="radio-inline">
+            <input
+              [disabled]="desabilitado"
+              class="form-check-input"
+              type="radio"
+              name="ativa"
+              formControlName="ativo"
+              value="S"
+            />
+            Sim
+          </span>
+          &nbsp;
+          <span class="radio-inline">
+            <input
+              [disabled]="desabilitado"
+              class="form-check-input"
+              type="radio"
+              name="ativa"
+              formControlName="ativo"
+              value="N"
+            />
+            Não
+          </span>
+        </td>
+        <td>
+          <span class="radio-inline">
+            <input
+              [disabled]="desabilitado"
+              class="form-check-input"
+              type="radio"
+              name="automatizada"
+              formControlName="automatizado"
+              value="S"
+            />
+            Sim
+          </span>
+          &nbsp;
+          <span class="radio-inline">
+            <input
+              [disabled]="desabilitado"
+              class="form-check-input"
+              type="radio"
+              name="automatizada"
+              formControlName="automatizado"
+              value="N"
+            />
+            Não
+          </span>
+        </td>
+        <td>
+          <input
+            [disabled]="desabilitado"
+            formControlName="ordem"
+            aria-label="Ordem de Apresentação do Serviço"
+            class="form-control"
+            type="number"
+            style="width: 100px"
+            maxlength="3"
+            min="0"
+            max="127"
+            name="ardem"
+            [ngClass]="{ 'is-invalid': submitted && f.ordem.errors }"
+          />
+          <mat-error *ngIf="submitted && f.ordem.errors?.required"
+            >Obrigatório
+          </mat-error>
+          <mat-error *ngIf="submitted && f.ordem.errors?.min"
+            >Mínimo de 0
+          </mat-error>
+          <mat-error *ngIf="submitted && f.ordem.errors?.max"
+            >Máximo de 127
+          </mat-error>
+        </td>
+        <td>
+          <input
+            [disabled]="desabilitado"
+            formControlName="limiteNegocio"
+            aria-label="Linha de Atuação Negocial"
+            class="form-control"
+            type="number"
+            style="width: 100px"
+            maxlength="5"
+            min="0"
+            max="32767"
+            name="limiteNegocia"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Descrição do Serviço</label></td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <textarea
+            [disabled]="desabilitado"
+            formControlName="descricao"
+            aria-label="Descrição do Serviço"
+            class="form-control"
+            type="textarea"
+            cols="50"
+            rows="4"
+            maxlength="1000"
+            name="descrica"
+            [ngClass]="{ 'is-invalid': submitted && f.descricao.errors }"
+          ></textarea>
+          <mat-error *ngIf="submitted && f.descricao.errors?.maxlength"
+            >Máximo de 1000
+          </mat-error>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <hr />
+          <h2>Parâmetros Extras</h2>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Ambiente(s) do Serviço de Dados
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <label class="form-label">Ambientes</label>
+              <section class="example-section">
+                <ng-container formArrayName="ambientes">
+                  <div
+                    *ngFor="let amb of ambientes.controls; let ind = index"
+                    [formGroupName]="ind"
+                  >
+                    <mat-checkbox
+                      formControlName="selecionado"
+                      [disabled]="desabilitado"
+                      class="chk-margin"
+                      >{{ listaAmbientes[ind].NO_AMBIENTE }}</mat-checkbox
+                    >
+                  </div>
+                </ng-container>
+              </section>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Interface(s) do Serviço de Dados
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <table>
+                <ng-container
+                  *ngFor="let obj of interfaces.controls; let ind = index"
+                >
+                  <tr [formGroup]="obj">
+                    <td>
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" style="width: 50%">
+                          <mat-label>Interface de Sistema</mat-label>
+                          <mat-select
+                            [disabled]="desabilitado"
+                            title="Interface de Sistema"
+                            aria-label="Interface de Sistema"
+                            class="my-select"
+                            name="interfaceSistema"
+                            formControlName="id"
+                            required="true"
+                            [ngClass]="{
+                              'is-invalid': obj.errors
+                            }"
+                          >
+                            <mat-option
+                              *ngFor="let opcao of listaInterfaceSistema"
+                              [value]="opcao.NU_IDNTR_INTFCE_SISTEMA"
+                            >
+                              {{ opcao.NU_IDNTR_INTFCE_SISTEMA }} -
+                              {{ opcao.NO_INTFCE_SISTEMA }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" style="width: 300px">
+                          <mat-label>Ordem de chamada da interface</mat-label>
+                          <input
+                            [disabled]="desabilitado"
+                            type="number"
+                            matInput
+                            maxlength="3"
+                            required="true"
+                            placeholder="Ex. 2"
+                            formControlName="ordem"
+                          />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                    <td style="text-align: right">
+                      <button
+                        *ngIf="!desabilitado"
+                        (click)="removerInterface(ind)"
+                        type="button"
+                        class="bt bt-p bt-secundario azul"
+                        aria-label="excluir"
+                        title="Excluir"
+                        style="padding-left: 5px; padding-right: 5px"
+                      >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </table>
+              <br />
+              <button
+                *ngIf="!desabilitado"
+                class="bt bt-p azul2"
+                type="button"
+                title="Adicionar nova interface"
+                aria-label="Adicionar nova interface"
+                (click)="adicionarInterface()"
+              >
+                Adicionar nova interface
+              </button>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Tipo(s) de Cadastramento do Serviço de Dados
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <table>
+                <ng-container
+                  *ngFor="
+                    let item of tiposCadastramento.controls;
+                    let i = index
+                  " [formGroupName]="i"
+                >
+                  <tr [formGroup]="item">
+                    <td>
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" style="width: 50%">
+                          <mat-label>Tipo de Cadastramento</mat-label>
+                          <mat-select
+                            [disabled]="desabilitado"
+                            title="Tipo de Cadastramento"
+                            aria-label="Tipo de Cadastramento"
+                            class="my-select"
+                            name="tipoCadastramento"
+                            formControlName="id"
+                            required="true"
+                            [ngClass]="{
+                              'is-invalid': item.errors
+                            }"
+                          >
+                            <mat-option
+                              *ngFor="let opcao of listaTipoCadastramentoCombo"
+                              [value]="opcao.NU_IDNTR_TIPO_MASSA_DADO"
+                            >
+                              {{ opcao.NU_IDNTR_TIPO_MASSA_DADO }} -
+                              {{ opcao.NO_TIPO_MASSA_DADO }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </td>
+                    <td style="text-align: right">
+                      <button
+                        *ngIf="!desabilitado"
+                        (click)="removerTipoCadastramento(i)"
+                        type="button"
+                        class="bt bt-p bt-secundario azul"
+                        aria-label="excluir"
+                        title="Excluir"
+                        style="padding-left: 5px; padding-right: 5px"
+                      >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </table>
+
+              <br />
+              <button
+                *ngIf="!desabilitado"
+                class="bt bt-p azul2"
+                type="button"
+                title="Adicionar novo tipo"
+                aria-label="Adicionar novo tipo"
+                (click)="adicionarTipoCadastramento()"
+              >
+                Adicionar novo tipo
+              </button>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Atributos do(s) Serviço de Dados
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <ng-container
+                *ngFor="let itemAtr of atributoServicos.controls; let ind = index"
+              >
+                <mat-accordion [formGroup]="itemAtr">
+                  <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <table>
+                          <tr>
+                            <td>Atributo {{ ind + 1 }}</td>
+                            <td style="text-align: right">
+                              <button
+                                *ngIf="!desabilitado"
+                                (click)="removerAtributos(atributo)"
+                                type="button"
+                                class="bt bt-p bt-secundario azul"
+                                aria-label="excluir"
+                                title="Excluir"
+                                style="padding-left: 5px; padding-right: 5px"
+                              >
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </table>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <table>
+                      <tr>
+                        <td>
+                          <label class="form-label"
+                            >Tipo de Cadastramento</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label">Atributo</label>
+                        </td>
+                        <td>
+                          <label class="form-label">Papel do Atributo</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <mat-select
+                            [disabled]="desabilitado"
+                            title="Tipo de Cadastramento"
+                            aria-label="Tipo de Cadastramento"
+                            class="my-select"
+                            name="tipoCadastramento{{ ind }}"
+                            formControlName="idTipoMassa"
+                            required="true"
+                            [ngClass]="{
+                              'is-invalid': itemAtr.errors
+                            }"
+                          >
+                            <mat-option
+                              *ngFor="let opcao of listaTipoCadastramentoCombo"
+                              [value]="opcao.NU_IDNTR_TIPO_MASSA_DADO"
+                            >
+                              {{ opcao.NU_IDNTR_TIPO_MASSA_DADO }} -
+                              {{ opcao.NO_TIPO_MASSA_DADO }}
+                            </mat-option>
+                          </mat-select>
+                        </td>
+                        <td>
+                          <mat-select
+                            [disabled]="desabilitado"
+                            title="Atributo"
+                            aria-label="Atributo"
+                            class="my-select"
+                            name="atributo{{ ind }}"
+                            formControlName="idAtributo"
+                            required="true"
+                            [ngClass]="{
+                              'is-invalid': itemAtr.errors
+                            }"
+                          >
+                            <mat-option
+                              *ngFor="let opcao of listaAtributos"
+                              [value]="opcao.NU_IDNTR_ATRIBUTO"
+                            >
+                              {{ opcao.NU_IDNTR_ATRIBUTO }} -
+                              {{ opcao.DE_APRESENTACAO_PADRAO }}
+                            </mat-option>
+                          </mat-select>
+                        </td>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              formControlName="idPapelAtributo"
+                              type="radio"
+                              name="papel{{ ind }}"
+                              value="E"
+                            />
+                            Entrada
+                          </span>
+                          &nbsp;
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              formControlName="idPapelAtributo"
+                              type="radio"
+                              name="papel{{ ind }}"
+                              value="S"
+                            />
+                            Saída
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="form-label"
+                            >Ordem de apresentação do atributo</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label"
+                            >Atributo é obrigatório?</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label"
+                            >Utiliza valor padrão do atributo?</label
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            [disabled]="desabilitado"
+                            aria-label="Ordem de apresentação do atributo"
+                            class="form-control"
+                            formControlName="idOrdenApresentacao"
+                            type="number"
+                            style="width: 100px"
+                            maxlength="3"
+                            min="0"
+                            max="255"
+                            name="ordemAtributo{{ ind }}"
+                          />
+                        </td>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="atrObrigatorio{{ ind }}"
+                              formControlName="icAtributoObrigatorio"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="atrObrigatorio{{ ind }}"
+                              formControlName="icAtributoObrigatorio"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="valorPadrao{{ ind }}"
+                              formControlName="icUtilizaCntdoPadrao"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="valorPadrao{{ ind }}"
+                              formControlName="icUtilizaCntdoPadrao"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="form-label"
+                            >Texto de apresentação padrão?</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label"
+                            >Gera o conteúdo do atributo?</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label">Conteúdo do atributo</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="textoPadrao{{ ind }}"
+                              formControlName="icUtilizaApicoPadrao"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="textoPadrao{{ ind }}"
+                              formControlName="icUtilizaApicoPadrao"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="conteudoAtr{{ ind }}"
+                              formControlName="icGeraConteudoAtributo"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="conteudoAtr{{ ind }}"
+                              formControlName="icGeraConteudoAtributo"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                        <td>
+                          <input
+                            [disabled]="desabilitado"
+                            aria-label="Conteúdo do atributo"
+                            class="form-control"
+                            type="text"
+                            maxlength="100"
+                            formControlName="deCntdoAtbtoServico"
+                            name="conteudoAtributo{{ ind }}"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="form-label"
+                            >Texto de apresentação do atributo</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label"
+                            >Atributo deve ser apresentado em tela?</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label"
+                            >Conteúdo deve ser apresentado em tela?</label
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input
+                            [disabled]="desabilitado"
+                            aria-label="Texto de apresentação do atributo"
+                            class="form-control"
+                            formControlName="deAptcoAtbtoServico"
+                            type="text"
+                            maxlength="100"
+                            name="apresentacaoAtributo{{ ind }}"
+                          />
+                        </td>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="apresentado{{ ind }}"
+                              formControlName="icApresentaAtributo"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="apresentado{{ ind }}"
+                              formControlName="icApresentaAtributo"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="apresentadoAtr{{ ind }}"
+                              formControlName="icInformaCntdoAtributo"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="apresentadoAtr{{ ind }}"
+                              formControlName="icInformaCntdoAtributo"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="form-label"
+                            >Validar conteúdo do atributo?</label
+                          >
+                        </td>
+                        <td>
+                          <label class="form-label"
+                            >Nome do atributo para o serviço</label
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="radio-inline">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="validarConteudo{{ ind }}"
+                              formControlName="icvalidaAtbtoSistema"
+                              value="S"
+                            />
+                            Sim
+                          </span>
+                          &nbsp;
+                          <span class="radio-">
+                            <input
+                              [disabled]="desabilitado"
+                              class="form-check-input"
+                              type="radio"
+                              name="validarConteudo{{ ind }}"
+                              formControlName="icvalidaAtbtoSistema"
+                              value="N"
+                            />
+                            Não
+                          </span>
+                        </td>
+                        <td>
+                          <input
+                            [disabled]="desabilitado"
+                            aria-label="Nome do atributo para o serviço"
+                            class="form-control"
+                            type="text"
+                            maxlength="50"
+                            formControlName="noAtributoServico"
+                            name="nomeAtributo{{ ind }}"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label class="form-label"
+                            >Regra para validação do conteúdo do atributo</label
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <textarea
+                            [disabled]="desabilitado"
+                            aria-label="Regra para validação do conteúdo do atributo"
+                            class="form-control"
+                            type="textarea"
+                            cols="50"
+                            rows="4"
+                            maxlength="500"
+                            formControlName="deexcoValidacao"
+                            name="regraValidacao{{ ind }}"
+                          ></textarea>
+                        </td>
+                      </tr>
+                    </table>
+                  </mat-expansion-panel>
+                  <br />
+                </mat-accordion>
+              </ng-container>
+              <br />
+              <button
+                *ngIf="!desabilitado"
+                class="bt bt-p azul2"
+                type="button"
+                title="Adicionar novo atributo"
+                aria-label="Adicionar novo atributo"
+                (click)="adicionarAtributos()"
+              >
+                Adicionar novo atributo
+              </button>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="4"><hr /></td>
+      </tr>
+      <tr *ngIf="!desabilitado">
+        <td colspan="4">
+          <button
+            [disabled]="desabilitado"
+            aria-label="cadastrar ou editar"
+            type="button"
+            class="bt bt-p bt-secundario laranja1"
+            (click)="salvar()"
+            onclick="window.scrollTo(0, 0)"
+          >
+            {{ tituloBotao }}
+          </button>
+          <button
+            aria-label="cancelar"
+            type="button"
+            title="Cancelar"
+            class="bt bt-p"
+            style="width: 200px"
+            (click)="voltar()"
+          >
+            Cancelar
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</main>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loja de Calçados</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/images/favicon/favicon.ico"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link
+      rel="prefetch"
+      as="script"
+      href="https://vlibras.gov.br/app/vlibras-plugin.js"
+    />
+  </head>
+  <body class="untouched mat-typography">
+    <app-root></app-root>
+    <!-- acessivel em libras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script type = "text/JavaScript" src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script type = "text/JavaScript">
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+    <style>
+      .access-button {
+        border-radius: 50px;
+      }
+    </style>
+    <!-- acessivel em libras -->
+  </body>
+</html>

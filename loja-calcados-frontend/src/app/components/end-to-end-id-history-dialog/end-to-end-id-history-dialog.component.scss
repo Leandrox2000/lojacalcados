@@ -1,0 +1,20 @@
+.wide-column {
+    width: 200px;
+  }
+  
+  .narrow-column {
+    width: 100px;
+  }
+  
+  .min-width-column {
+    min-width: 150px;
+  }
+
+  .custom-row-height .mat-row, .custom-row-height .mat-header-row {
+    min-height: 48px; 
+  }
+
+  .spacious-table .mat-cell, .spacious-table .mat-header-cell {
+    padding: 16px;
+    overflow-x: auto; 
+  }  

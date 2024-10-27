@@ -1,0 +1,62 @@
+/* DSC Modal para Bootstrap */
+
+.modal-content {
+	border-radius: 6px;
+}
+
+.modal-header {
+	background-color: $modal-cabecalho-bg;
+	color: $modal-cabecalho-cor;
+	position: relative;
+}
+
+.modal-title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.bt-fechar {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	font-size: 30px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: $modal-cabecalho-cor;
+}
+
+.modal .bt-fechar:hover {
+	color: $modal-cabecalho-hover-cor;
+}
+
+.modal-body {
+	padding: 16px;
+}
+
+.modal-footer {
+	padding: 16px;
+	justify-content: start;
+}
+
+.modal-footer * {
+	margin: 0;
+}
+
+.modal .infobox {
+	margin: 0 0 16px 0;
+	padding: 8px 16px;
+}
+
+.modal .infobox,
+.modal .infobox label {
+	font-size: 13px;
+}
+
+.modal .infobox label {
+	line-height: 1.25;
+}

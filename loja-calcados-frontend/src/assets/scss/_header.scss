@@ -1,0 +1,136 @@
+header {
+	background: $bg-header;
+	color: $cor-branco;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: $header-altura;
+	width: 100%;
+	z-index: 1;
+/*
+	transition: width $menu-transicao, left $menu-transicao;
+*/
+}
+
+/*
+.menu-visivel header {
+	left: $menu-largura;
+	width: calc(100% - #{$menu-largura});
+}
+*/
+
+header button {
+	width: $botao-menu-tamanho;
+	height: $botao-menu-tamanho;
+	position: absolute;
+	font-size: 13px;
+	line-height: 16px;
+	top: ($header-altura - $botao-menu-tamanho) * 0.5;
+	left: $body-padding - 8px;
+	background-color: transparent;
+	color: inherit;
+	border: none;
+	overflow: hidden;
+	padding: 0;
+}
+
+/*
+header button:hover {
+	background-color: $menu-item-bg-hover;
+}*/
+
+.menu-visivel header button .fa-times {
+	display: inline-block;
+}
+
+header button .fa-times,
+.menu-visivel header button .fa-bars {
+	display: none;
+}
+
+header svg {
+	height: 16px;
+	position: absolute;
+	top: 24px;
+	left: ($body-padding + $botao-menu-tamanho + 8px);
+}
+
+header h1 {
+	position: absolute;
+	top: 20px;
+	left: ($body-padding + $botao-menu-tamanho + 99px);
+	padding-left: 16px;
+	border-left: 1px solid $cor-separador;
+	height: 24px;
+	line-height: 24px;
+	font-size: 21px;
+	font-weight: $fonte-book;
+}
+
+header h1 strong {
+	font-weight: $fonte-heavy;
+}
+
+header h1 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+header h1 a:hover {
+	color: inherit;
+}
+
+header h1 small {
+	font-size: 12px;
+	margin-left: 16px;
+}
+
+header ul {
+	list-style-type: none;
+	position: absolute;
+	right: $body-padding;
+	height: $userinfo-tamanho;
+	top: ($header-altura - $userinfo-tamanho) * 0.5;
+	font-size: $userinfo-texto-tamanho;
+	line-height: $userinfo-tamanho * 0.5;
+}
+
+header ul li {
+	padding: 0 ($userinfo-tamanho + 16px) 0 0;
+	font-weight: $fonte-book;
+	text-align: right;
+}
+
+header ul li:first-child {
+	font-weight: $fonte-heavy;
+}
+
+header ul li:last-child {
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: center;
+	line-height: $userinfo-tamanho;
+	height: $userinfo-tamanho;
+	width: $userinfo-tamanho;
+	border-radius: 50%;
+	background-color: $cor-branco;
+	color: $userinfo-icone-cor;
+}
+
+.confidencialidade {
+	position: absolute;
+	right: 10px;
+	top: $header-altura + 8px;
+	font-weight: $fonte-book;
+	color: $cor-grafite-c3;
+	font-size: 10px;
+	background-color: rgba(230, 238, 240, .5);
+}
+
+.sapatos {
+	position: absolute;
+	top: 20px;
+	left: ($body-padding + $botao-menu-tamanho + 8px);
+}

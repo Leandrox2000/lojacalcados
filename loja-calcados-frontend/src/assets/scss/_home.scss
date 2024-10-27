@@ -1,0 +1,200 @@
+$home-padding-esquerdo: 72px;
+$home-conteudo-largura: 700px;
+$home-atalhos-altura: 200px;
+$home-overlay-cor: linear-gradient(90deg, #005ca980 0%, #54bbab80 66%);
+$home-conteudo-cor: $cor-branco;
+$home-conteudo-margens: 24px;
+$home-conteudo-cabecalho-tamanho: 36px;
+$home-conteudo-descricao-tamanho: 16px;
+$home-atalhos-itens-margem: 24px;
+$home-atalhos-item-altura: 92px;
+$home-atalhos-padding-vertical: ($home-atalhos-altura - $home-atalhos-item-altura) * 0.5;
+$home-atalhos-item-cor: $cor-azul-caixa;
+$home-atalhos-item-fundo: $cor-porcelana;
+$home-atalhos-item-fundo-hover: $cor-gelo-c2;
+$home-atalhos-item-borda: $cor-polar;
+$home-atalhos-item-tamanho: 14px;
+$home-atalhos-item-margem: 8px;
+$home-atalhos-icone-cor: $cor-laranja-caixa;
+$home-atalhos-icone-margem: 16px;
+$home-atalhos-icone-tamanho: 60px;
+$home-atalhos-icone-fonte: 32px;
+$home-atalhos-icone-fundo: $cor-gelo-c2;
+$home-atalhos-icone-fundo-hover: $cor-gelo-c1;
+$home-atalhos-tempo-transicao: .2s;
+
+.home-container {
+    height: calc(100vh - #{$header-altura} - #{$home-atalhos-altura}); /* Com os atalhos */
+	/* height: calc(100vh - #{$header-altura} ); */ /* Sem os atalhos */
+    overflow: hidden;
+    background-image: url('/assets/images/home2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	top: $header-altura;
+}
+
+.home-grafico {
+    height: calc(90vh - #{$header-altura} - #{$home-atalhos-altura}); /* Com os atalhos */
+	/* height: calc(100vh - #{$header-altura} ); */ /* Sem os atalhos */
+    overflow: hidden;
+    background-image: url('/assets/images/percentual_func_contadas_blue.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	top: $header-altura;
+}
+
+.home-container,
+.home-atalhos {
+	position: fixed;
+	width: 100%;
+	transition: width $menu-transicao;
+	right: 0;
+}
+
+.menu-visivel .home-container,
+.menu-visivel .home-atalhos {
+	width: calc(100% - #{$menu-largura});
+}
+
+.home-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+	background: $home-overlay-cor;
+	display: flex;
+	align-items: center;
+}
+
+.home-conteudo {
+	padding-left: $home-padding-esquerdo;
+	color: $home-conteudo-cor;
+	width: $home-conteudo-largura;
+}
+
+.home-conteudo h2 {
+	font-size: $home-conteudo-cabecalho-tamanho;
+	font-weight: $fonte-bold;
+	margin-bottom: $home-conteudo-margens;
+}
+
+.home-conteudo p {
+	font-size: $home-conteudo-descricao-tamanho;
+	font-weight: $fonte-book;
+	margin-bottom: $home-conteudo-margens;
+}
+
+.home-atalhos {
+	height: $home-atalhos-altura;
+	padding: $home-atalhos-padding-vertical $home-padding-esquerdo;
+	margin: 0;
+	bottom: 0;
+	background-color: $cor-azul-caixa;
+	display: flex;
+	list-style-type: none;
+}
+
+.home-atalhos li {
+	display: contents;
+}
+
+.home-atalhos a {
+	display: block;
+	position: relative;
+	width: 100%;
+	background-color: $home-atalhos-item-fundo;
+	border: 1px solid $home-atalhos-item-borda;
+	border-radius: 4px;
+	padding: 0 $home-atalhos-item-margem 0 ($home-atalhos-icone-tamanho+$home-atalhos-icone-margem+$home-atalhos-item-margem);
+	color: $home-atalhos-item-cor;
+	font-size: $home-atalhos-item-tamanho;
+	font-weight: $fonte-bold;
+	line-height: $home-atalhos-item-altura;
+	text-decoration: none;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	transition: background-color $home-atalhos-tempo-transicao;
+}
+
+.home-atalhos a:hover {
+	background-color: $home-atalhos-item-fundo-hover;
+}
+
+.home-atalhos a span {
+	position: absolute;
+	display: block;
+	text-align: center;
+	left: $home-atalhos-icone-margem;
+	top: $home-atalhos-icone-margem;
+	width: $home-atalhos-icone-tamanho;
+	height: $home-atalhos-icone-tamanho;
+	line-height: $home-atalhos-icone-tamanho;
+	padding: 0;
+	background-color: $home-atalhos-icone-fundo;
+	border-radius: ($home-atalhos-icone-tamanho*0.5);
+	color: $home-atalhos-icone-cor;
+	transition: background-color $home-atalhos-tempo-transicao;
+}
+
+.home-atalhos a:hover span {
+	background-color: $home-atalhos-icone-fundo-hover;
+}
+
+.home-atalhos a span i {
+	font-size: $home-atalhos-icone-fonte;
+	line-height: $home-atalhos-icone-tamanho;
+}
+
+.home-atalhos li + li a {
+	margin-left: $home-atalhos-itens-margem;
+}
+
+.card-dashboard {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+	border-left: 6px solid #64b5f6;
+}
+
+.subtitulo-dashboard {
+	font-size: 16px;
+	font-weight: 800;
+	color: #005ca9;
+	margin-bottom: 12px;
+    border-left: 0px;
+	padding-left: 0px;
+}
+.numero-dashboard {
+	font-size: 45px;
+    margin-bottom: 2px;
+	font-weight: 800;
+}
+.dado-dashboard {
+	font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.surface-border {
+    border-color: #cbcccc!important;
+}
+
+.border-right-1 {
+    border-right-width: 1px!important;
+    border-right-style: solid;
+}
+
+.font-semibold {
+    font-weight: 600!important;
+}
+
+
+

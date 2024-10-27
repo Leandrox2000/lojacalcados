@@ -1,0 +1,556 @@
+/* Variáveis de definição da paleta fixa */
+
+$cor-azul-caixa-c3: #249cff;
+$cor-azul-caixa-c2: #0089fa;
+$cor-azul-caixa-c1: #0073d1;
+$cor-azul-caixa:    #005ca9;
+$cor-azul-caixa-e1: #004680;
+$cor-azul-caixa-e2: #003057;
+$cor-azul-caixa-e3: #00192e;
+
+$cor-laranja-caixa-c3: #ffc670;
+$cor-laranja-caixa-c2: #ffb647;
+$cor-laranja-caixa-c1: #ffa51f;
+$cor-laranja-caixa:    #f39200;
+$cor-laranja-caixa-e1: #cc7a00;
+$cor-laranja-caixa-e2: #a36200;
+$cor-laranja-caixa-e3: #7a4900;
+
+$cor-turquesa-c3: #abded6;
+$cor-turquesa-c2: #8ed2c8;
+$cor-turquesa-c1: #71c6b9;
+$cor-turquesa:    #54bbab;
+$cor-turquesa-e1: #41a495;
+$cor-turquesa-e2: #36877b;
+$cor-turquesa-e3: #2a6a60;
+
+$cor-grafite-c3: #5c9099;
+$cor-grafite-c2: #4d7880;
+$cor-grafite-c1: #3d6066;
+$cor-grafite:    #2e484d;
+$cor-grafite-e1: #1f3033;
+$cor-grafite-e2: #0f181a;
+$cor-grafite-e3: #000000; /* Preto */
+
+$cor-gelo-c3: #ffffff; /* Branco */
+$cor-gelo-c2: #e6eef0;
+$cor-gelo-c1: #ccdde0;
+$cor-gelo:    #b3cdd1;
+$cor-gelo-e1: #99bcc2;
+$cor-gelo-e2: #80abb3;
+$cor-gelo-e3: #669aa3;
+
+/* Variáveis de definição da paleta flexível */
+
+$cor-ceu-c3: #61ddff;
+$cor-ceu-c2: #38d4ff;
+$cor-ceu-c1: #0fcbff;
+$cor-ceu:    #00b4e6;
+$cor-ceu-e1: #0094bd;
+$cor-ceu-e2: #007494;
+$cor-ceu-e3: #00546b;
+
+$cor-uva-c3: #ddc0d3;
+$cor-uva-c2: #cfa5c0;
+$cor-uva-c1: #c18bae;
+$cor-uva:    #b2709b;
+$cor-uva-e1: #a25788;
+$cor-uva-e2: #884972;
+$cor-uva-e3: #6d3b5c;
+
+$cor-limao-c3: #e2f65a;
+$cor-limao-c2: #dbf434;
+$cor-limao-c1: #d4f20d;
+$cor-limao:    #b2cb0b;
+$cor-limao-e1: #90a509;
+$cor-limao-e2: #6e7e07;
+$cor-limao-e3: #4c5705;
+
+$cor-tangerina-c3: #ffd675;
+$cor-tangerina-c2: #ffc94d;
+$cor-tangerina-c1: #ffbd24;
+$cor-tangerina:    #faaf00;
+$cor-tangerina-e1: #d19200;
+$cor-tangerina-e2: #a87600;
+$cor-tangerina-e3: #805900;
+
+$cor-goiaba-c3: #fad4cc;
+$cor-goiaba-c2: #f6b4a7;
+$cor-goiaba-c1: #f39582;
+$cor-goiaba:    #ef755d;
+$cor-goiaba-e1: #eb5337;
+$cor-goiaba-e2: #e33916;
+$cor-goiaba-e3: #be2f13;
+
+/* Variáveis de definição da paleta semântica */
+
+$cor-info-c3: #8e86e4;
+$cor-info-c2: #6f65dc;
+$cor-info-c1: #5044d5;
+$cor-info:    #392cc3;
+$cor-info-e1: #2f25a2;
+$cor-info-e2: #261d81;
+$cor-info-e3: #1c1660;
+
+$cor-sucesso-c3: #58e490;
+$cor-sucesso-c2: #35de79;
+$cor-sucesso-c1: #21ca64;
+$cor-sucesso:    #1ba753;
+$cor-sucesso-e1: #158441;
+$cor-sucesso-e2: #106030;
+$cor-sucesso-e3: #0a3d1f;
+
+$cor-atencao-c3: #ffe77a;
+$cor-atencao-c2: #ffdf52;
+$cor-atencao-c1: #ffd829;
+$cor-atencao:    #ffd000;
+$cor-atencao-e1: #d6af00;
+$cor-atencao-e2: #ad8e00;
+$cor-atencao-e3: #805900;
+
+$cor-perigo-c3: #f58d7f;
+$cor-perigo-c2: #f36b59;
+$cor-perigo-c1: #f04933;
+$cor-perigo:    #e82b11;
+$cor-perigo-e1: #c2240f;
+$cor-perigo-e2: #9d1d0c;
+$cor-perigo-e3: #771609;
+
+/* Variáveis de definição da paleta alternativa */
+
+$cor-porcelana: #f7fafa;
+$cor-polar:     #f2f7f8;
+
+/* Variáveis de definição da paleta auxiliar */
+
+$cor-branco: #ffffff;
+$cor-preto:  #000000;
+
+/* Variáveis de especificação */
+
+$link-texto-cor: $cor-azul-caixa-c1;
+$link-hover-cor: $cor-azul-caixa;
+$cor-separador: $cor-gelo-e2;
+$bg-body: $cor-gelo-c2;
+/* $bg-header: linear-gradient(90deg, $cor-azul-caixa 0%, $cor-turquesa 100%); */
+$bg-header: $cor-azul-caixa;
+$bg-formulario: $cor-branco;
+$userinfo-icone-cor: $cor-grafite-c3;
+$menu-item-bg-hover: #ffffff10;
+$menu-item-cor-separador: #ffffff30;
+$migalha-cor: $cor-grafite-c3;
+$migalha-botao-cor: $cor-grafite;
+$main-heading-cor: $cor-azul-caixa;
+$main-sobre-pagina-cor: $cor-grafite-c2;
+$cor-formulario-borda: $cor-gelo-c1;
+$tabela-texto-cor: $cor-grafite;
+$tabela-borda-cor: $cor-gelo-c1;
+$tabela-box-bg: $cor-gelo-c2;
+$tabela-box-paginacao-bg: $cor-gelo-c3;
+$tabela-cabecalho-cor: $cor-grafite-c2;
+$tabela-rodape-cor: $cor-grafite;
+$tabela-rodape-bg: $cor-gelo-c2;
+$tabela-ordenacao-bg: $cor-polar;
+$tabela-botao-desabilitado-cor: $cor-gelo;
+$tabela-hover-bg: $cor-polar;
+
+/* Cores da modal */
+
+$modal-cabecalho-cor: $cor-branco;
+$modal-cabecalho-hover-cor: $cor-gelo-c2;
+$modal-cabecalho-bg: $cor-azul-caixa;
+
+/* Cores da infobox */
+
+$bg-infobox: $cor-porcelana;
+$cor-infobox: $cor-grafite;
+$cor-infobox-icone: $cor-turquesa;
+$sombra-infobox: 0px 2px 3px 0px #00000030;
+
+/* Definições desativadas */
+
+/*
+$cor-cinza-claro: #e3e3e3;
+$bg-body: $cor-cinza-claro;
+$cor-formulario-borda: #d6d7d9;
+$cor-separador: #8fb5bc;
+*/
+
+/* Classes da paleta fixa */
+
+.cor-azul-caixa-c3 { color: $cor-azul-caixa-c3 !important; }
+.cor-azul-caixa-c2 { color: $cor-azul-caixa-c2 !important; }
+.cor-azul-caixa-c1 { color: $cor-azul-caixa-c1 !important; }
+.cor-azul-caixa    { color: $cor-azul-caixa    !important; }
+.cor-azul-caixa-e1 { color: $cor-azul-caixa-e1 !important; }
+.cor-azul-caixa-e2 { color: $cor-azul-caixa-e2 !important; }
+.cor-azul-caixa-e3 { color: $cor-azul-caixa-e3 !important; }
+
+.bg-azul-caixa-c3  { background-color: $cor-azul-caixa-c3 !important; }
+.bg-azul-caixa-c2  { background-color: $cor-azul-caixa-c2 !important; }
+.bg-azul-caixa-c1  { background-color: $cor-azul-caixa-c1 !important; }
+.bg-azul-caixa     { background-color: $cor-azul-caixa    !important; }
+.bg-azul-caixa-e1  { background-color: $cor-azul-caixa-e1 !important; }
+.bg-azul-caixa-e2  { background-color: $cor-azul-caixa-e2 !important; }
+.bg-azul-caixa-e3  { background-color: $cor-azul-caixa-e3 !important; }
+
+.cor-laranja-caixa-c3 { color: $cor-laranja-caixa-c3 !important; }
+.cor-laranja-caixa-c2 { color: $cor-laranja-caixa-c2 !important; }
+.cor-laranja-caixa-c1 { color: $cor-laranja-caixa-c1 !important; }
+.cor-laranja-caixa    { color: $cor-laranja-caixa    !important; }
+.cor-laranja-caixa-e1 { color: $cor-laranja-caixa-e1 !important; }
+.cor-laranja-caixa-e2 { color: $cor-laranja-caixa-e2 !important; }
+.cor-laranja-caixa-e3 { color: $cor-laranja-caixa-e3 !important; }
+
+.bg-laranja-caixa-c3  { background-color: $cor-laranja-caixa-c3 !important; }
+.bg-laranja-caixa-c2  { background-color: $cor-laranja-caixa-c2 !important; }
+.bg-laranja-caixa-c1  { background-color: $cor-laranja-caixa-c1 !important; }
+.bg-laranja-caixa     { background-color: $cor-laranja-caixa    !important; }
+.bg-laranja-caixa-e1  { background-color: $cor-laranja-caixa-e1 !important; }
+.bg-laranja-caixa-e2  { background-color: $cor-laranja-caixa-e2 !important; }
+.bg-laranja-caixa-e3  { background-color: $cor-laranja-caixa-e3 !important; }
+
+.cor-turquesa-c3 { color: $cor-turquesa-c3 !important; }
+.cor-turquesa-c2 { color: $cor-turquesa-c2 !important; }
+.cor-turquesa-c1 { color: $cor-turquesa-c1 !important; }
+.cor-turquesa    { color: $cor-turquesa    !important; }
+.cor-turquesa-e1 { color: $cor-turquesa-e1 !important; }
+.cor-turquesa-e2 { color: $cor-turquesa-e2 !important; }
+.cor-turquesa-e3 { color: $cor-turquesa-e3 !important; }
+
+.bg-turquesa-c3  { background-color: $cor-turquesa-c3 !important; }
+.bg-turquesa-c2  { background-color: $cor-turquesa-c2 !important; }
+.bg-turquesa-c1  { background-color: $cor-turquesa-c1 !important; }
+.bg-turquesa     { background-color: $cor-turquesa    !important; }
+.bg-turquesa-e1  { background-color: $cor-turquesa-e1 !important; }
+.bg-turquesa-e2  { background-color: $cor-turquesa-e2 !important; }
+.bg-turquesa-e3  { background-color: $cor-turquesa-e3 !important; }
+
+.cor-grafite-c3 { color: $cor-grafite-c3 !important; }
+.cor-grafite-c2 { color: $cor-grafite-c2 !important; }
+.cor-grafite-c1 { color: $cor-grafite-c1 !important; }
+.cor-grafite    { color: $cor-grafite    !important; }
+.cor-grafite-e1 { color: $cor-grafite-e1 !important; }
+.cor-grafite-e2 { color: $cor-grafite-e2 !important; }
+.cor-grafite-e3 { color: $cor-grafite-e3 !important; }
+
+.bg-grafite-c3  { background-color: $cor-grafite-c3 !important; }
+.bg-grafite-c2  { background-color: $cor-grafite-c2 !important; }
+.bg-grafite-c1  { background-color: $cor-grafite-c1 !important; }
+.bg-grafite     { background-color: $cor-grafite    !important; }
+.bg-grafite-e1  { background-color: $cor-grafite-e1 !important; }
+.bg-grafite-e2  { background-color: $cor-grafite-e2 !important; }
+.bg-grafite-e3  { background-color: $cor-grafite-e3 !important; }
+
+.cor-gelo-c3 { color: $cor-gelo-c3 !important; }
+.cor-gelo-c2 { color: $cor-gelo-c2 !important; }
+.cor-gelo-c1 { color: $cor-gelo-c1 !important; }
+.cor-gelo    { color: $cor-gelo    !important; }
+.cor-gelo-e1 { color: $cor-gelo-e1 !important; }
+.cor-gelo-e2 { color: $cor-gelo-e2 !important; }
+.cor-gelo-e3 { color: $cor-gelo-e3 !important; }
+
+.bg-gelo-c3  { background-color: $cor-gelo-c3 !important; }
+.bg-gelo-c2  { background-color: $cor-gelo-c2 !important; }
+.bg-gelo-c1  { background-color: $cor-gelo-c1 !important; }
+.bg-gelo     { background-color: $cor-gelo    !important; }
+.bg-gelo-e1  { background-color: $cor-gelo-e1 !important; }
+.bg-gelo-e2  { background-color: $cor-gelo-e2 !important; }
+.bg-gelo-e3  { background-color: $cor-gelo-e3 !important; }
+
+/* Classes da paleta flexível */
+
+.cor-ceu-c3 { color: $cor-ceu-c3 !important; }
+.cor-ceu-c2 { color: $cor-ceu-c2 !important; }
+.cor-ceu-c1 { color: $cor-ceu-c1 !important; }
+.cor-ceu    { color: $cor-ceu    !important; }
+.cor-ceu-e1 { color: $cor-ceu-e1 !important; }
+.cor-ceu-e2 { color: $cor-ceu-e2 !important; }
+.cor-ceu-e3 { color: $cor-ceu-e3 !important; }
+
+.bg-ceu-c3  { background-color: $cor-ceu-c3 !important; }
+.bg-ceu-c2  { background-color: $cor-ceu-c2 !important; }
+.bg-ceu-c1  { background-color: $cor-ceu-c1 !important; }
+.bg-ceu     { background-color: $cor-ceu    !important; }
+.bg-ceu-e1  { background-color: $cor-ceu-e1 !important; }
+.bg-ceu-e2  { background-color: $cor-ceu-e2 !important; }
+.bg-ceu-e3  { background-color: $cor-ceu-e3 !important; }
+
+.cor-uva-c3 { color: $cor-uva-c3 !important; }
+.cor-uva-c2 { color: $cor-uva-c2 !important; }
+.cor-uva-c1 { color: $cor-uva-c1 !important; }
+.cor-uva    { color: $cor-uva    !important; }
+.cor-uva-e1 { color: $cor-uva-e1 !important; }
+.cor-uva-e2 { color: $cor-uva-e2 !important; }
+.cor-uva-e3 { color: $cor-uva-e3 !important; }
+
+.bg-uva-c3  { background-color: $cor-uva-c3 !important; }
+.bg-uva-c2  { background-color: $cor-uva-c2 !important; }
+.bg-uva-c1  { background-color: $cor-uva-c1 !important; }
+.bg-uva     { background-color: $cor-uva    !important; }
+.bg-uva-e1  { background-color: $cor-uva-e1 !important; }
+.bg-uva-e2  { background-color: $cor-uva-e2 !important; }
+.bg-uva-e3  { background-color: $cor-uva-e3 !important; }
+
+.cor-limao-c3 { color: $cor-limao-c3 !important; }
+.cor-limao-c2 { color: $cor-limao-c2 !important; }
+.cor-limao-c1 { color: $cor-limao-c1 !important; }
+.cor-limao    { color: $cor-limao    !important; }
+.cor-limao-e1 { color: $cor-limao-e1 !important; }
+.cor-limao-e2 { color: $cor-limao-e2 !important; }
+.cor-limao-e3 { color: $cor-limao-e3 !important; }
+
+.bg-limao-c3  { background-color: $cor-limao-c3 !important; }
+.bg-limao-c2  { background-color: $cor-limao-c2 !important; }
+.bg-limao-c1  { background-color: $cor-limao-c1 !important; }
+.bg-limao     { background-color: $cor-limao    !important; }
+.bg-limao-e1  { background-color: $cor-limao-e1 !important; }
+.bg-limao-e2  { background-color: $cor-limao-e2 !important; }
+.bg-limao-e3  { background-color: $cor-limao-e3 !important; }
+
+.cor-tangerina-c3 { color: $cor-tangerina-c3 !important; }
+.cor-tangerina-c2 { color: $cor-tangerina-c2 !important; }
+.cor-tangerina-c1 { color: $cor-tangerina-c1 !important; }
+.cor-tangerina    { color: $cor-tangerina    !important; }
+.cor-tangerina-e1 { color: $cor-tangerina-e1 !important; }
+.cor-tangerina-e2 { color: $cor-tangerina-e2 !important; }
+.cor-tangerina-e3 { color: $cor-tangerina-e3 !important; }
+
+.bg-tangerina-c3  { background-color: $cor-tangerina-c3 !important; }
+.bg-tangerina-c2  { background-color: $cor-tangerina-c2 !important; }
+.bg-tangerina-c1  { background-color: $cor-tangerina-c1 !important; }
+.bg-tangerina     { background-color: $cor-tangerina    !important; }
+.bg-tangerina-e1  { background-color: $cor-tangerina-e1 !important; }
+.bg-tangerina-e2  { background-color: $cor-tangerina-e2 !important; }
+.bg-tangerina-e3  { background-color: $cor-tangerina-e3 !important; }
+
+.cor-goiaba-c3 { color: $cor-goiaba-c3 !important; }
+.cor-goiaba-c2 { color: $cor-goiaba-c2 !important; }
+.cor-goiaba-c1 { color: $cor-goiaba-c1 !important; }
+.cor-goiaba    { color: $cor-goiaba    !important; }
+.cor-goiaba-e1 { color: $cor-goiaba-e1 !important; }
+.cor-goiaba-e2 { color: $cor-goiaba-e2 !important; }
+.cor-goiaba-e3 { color: $cor-goiaba-e3 !important; }
+
+.bg-goiaba-c3  { background-color: $cor-goiaba-c3 !important; }
+.bg-goiaba-c2  { background-color: $cor-goiaba-c2 !important; }
+.bg-goiaba-c1  { background-color: $cor-goiaba-c1 !important; }
+.bg-goiaba     { background-color: $cor-goiaba    !important; }
+.bg-goiaba-e1  { background-color: $cor-goiaba-e1 !important; }
+.bg-goiaba-e2  { background-color: $cor-goiaba-e2 !important; }
+.bg-goiaba-e3  { background-color: $cor-goiaba-e3 !important; }
+
+/* Classes da paleta semântica */
+
+.cor-info-c3 { color: $cor-info-c3 !important; }
+.cor-info-c2 { color: $cor-info-c2 !important; }
+.cor-info-c1 { color: $cor-info-c1 !important; }
+.cor-info    { color: $cor-info    !important; }
+.cor-info-e1 { color: $cor-info-e1 !important; }
+.cor-info-e2 { color: $cor-info-e2 !important; }
+.cor-info-e3 { color: $cor-info-e3 !important; }
+
+.bg-info-c3  { background-color: $cor-info-c3 !important; }
+.bg-info-c2  { background-color: $cor-info-c2 !important; }
+.bg-info-c1  { background-color: $cor-info-c1 !important; }
+.bg-info     { background-color: $cor-info    !important; }
+.bg-info-e1  { background-color: $cor-info-e1 !important; }
+.bg-info-e2  { background-color: $cor-info-e2 !important; }
+.bg-info-e3  { background-color: $cor-info-e3 !important; }
+
+.cor-sucesso-c3 { color: $cor-sucesso-c3 !important; }
+.cor-sucesso-c2 { color: $cor-sucesso-c2 !important; }
+.cor-sucesso-c1 { color: $cor-sucesso-c1 !important; }
+.cor-sucesso    { color: $cor-sucesso    !important; }
+.cor-sucesso-e1 { color: $cor-sucesso-e1 !important; }
+.cor-sucesso-e2 { color: $cor-sucesso-e2 !important; }
+.cor-sucesso-e3 { color: $cor-sucesso-e3 !important; }
+
+.bg-sucesso-c3  { background-color: $cor-sucesso-c3 !important; }
+.bg-sucesso-c2  { background-color: $cor-sucesso-c2 !important; }
+.bg-sucesso-c1  { background-color: $cor-sucesso-c1 !important; }
+.bg-sucesso     { background-color: $cor-sucesso    !important; }
+.bg-sucesso-e1  { background-color: $cor-sucesso-e1 !important; }
+.bg-sucesso-e2  { background-color: $cor-sucesso-e2 !important; }
+.bg-sucesso-e3  { background-color: $cor-sucesso-e3 !important; }
+
+.cor-atencao-c3 { color: $cor-atencao-c3 !important; }
+.cor-atencao-c2 { color: $cor-atencao-c2 !important; }
+.cor-atencao-c1 { color: $cor-atencao-c1 !important; }
+.cor-atencao    { color: $cor-atencao    !important; }
+.cor-atencao-e1 { color: $cor-atencao-e1 !important; }
+.cor-atencao-e2 { color: $cor-atencao-e2 !important; }
+.cor-atencao-e3 { color: $cor-atencao-e3 !important; }
+
+.bg-atencao-c3  { background-color: $cor-atencao-c3 !important; }
+.bg-atencao-c2  { background-color: $cor-atencao-c2 !important; }
+.bg-atencao-c1  { background-color: $cor-atencao-c1 !important; }
+.bg-atencao     { background-color: $cor-atencao    !important; }
+.bg-atencao-e1  { background-color: $cor-atencao-e1 !important; }
+.bg-atencao-e2  { background-color: $cor-atencao-e2 !important; }
+.bg-atencao-e3  { background-color: $cor-atencao-e3 !important; }
+
+.cor-perigo-c3 { color: $cor-perigo-c3 !important; }
+.cor-perigo-c2 { color: $cor-perigo-c2 !important; }
+.cor-perigo-c1 { color: $cor-perigo-c1 !important; }
+.cor-perigo    { color: $cor-perigo    !important; }
+.cor-perigo-e1 { color: $cor-perigo-e1 !important; }
+.cor-perigo-e2 { color: $cor-perigo-e2 !important; }
+.cor-perigo-e3 { color: $cor-perigo-e3 !important; }
+
+.bg-perigo-c3  { background-color: $cor-perigo-c3 !important; }
+.bg-perigo-c2  { background-color: $cor-perigo-c2 !important; }
+.bg-perigo-c1  { background-color: $cor-perigo-c1 !important; }
+.bg-perigo     { background-color: $cor-perigo    !important; }
+.bg-perigo-e1  { background-color: $cor-perigo-e1 !important; }
+.bg-perigo-e2  { background-color: $cor-perigo-e2 !important; }
+.bg-perigo-e3  { background-color: $cor-perigo-e3 !important; }
+
+/* Classes da paleta alternativa */
+
+.cor-porcelana { color: $cor-porcelana !important; }
+.bg-porcelana  { background-color: $cor-porcelana !important; }
+.cor-polar     { color: $cor-polar !important; }
+.bg-polar      { background-color: $cor-polar !important; }
+
+/* Classes da paleta auxiliar */
+
+.cor-branco { color: $cor-branco !important; }
+.bg-branco  { background-color: $cor-branco !important; }
+.cor-preto  { color: $cor-preto !important; }
+.bg-preto   { background-color: $cor-preto !important; }
+
+/* Variáveis CSS */
+
+:root {
+
+	/* Paleta fixa */
+
+	--cor-azul-caixa-c3: #{$cor-azul-caixa-c3};
+	--cor-azul-caixa-c2: #{$cor-azul-caixa-c2};
+	--cor-azul-caixa-c1: #{$cor-azul-caixa-c1};
+	--cor-azul-caixa   : #{$cor-azul-caixa   };
+	--cor-azul-caixa-e1: #{$cor-azul-caixa-e1};
+	--cor-azul-caixa-e2: #{$cor-azul-caixa-e2};
+	--cor-azul-caixa-e3: #{$cor-azul-caixa-e3};
+
+	--cor-laranja-caixa-c3: #{$cor-laranja-caixa-c3};
+	--cor-laranja-caixa-c2: #{$cor-laranja-caixa-c2};
+	--cor-laranja-caixa-c1: #{$cor-laranja-caixa-c1};
+	--cor-laranja-caixa   : #{$cor-laranja-caixa   };
+	--cor-laranja-caixa-e1: #{$cor-laranja-caixa-e1};
+	--cor-laranja-caixa-e2: #{$cor-laranja-caixa-e2};
+	--cor-laranja-caixa-e3: #{$cor-laranja-caixa-e3};
+
+	--cor-turquesa-c3: #{$cor-turquesa-c3};
+	--cor-turquesa-c2: #{$cor-turquesa-c2};
+	--cor-turquesa-c1: #{$cor-turquesa-c1};
+	--cor-turquesa   : #{$cor-turquesa   };
+	--cor-turquesa-e1: #{$cor-turquesa-e1};
+	--cor-turquesa-e2: #{$cor-turquesa-e2};
+	--cor-turquesa-e3: #{$cor-turquesa-e3};
+
+	--cor-grafite-c3: #{$cor-grafite-c3};
+	--cor-grafite-c2: #{$cor-grafite-c2};
+	--cor-grafite-c1: #{$cor-grafite-c1};
+	--cor-grafite   : #{$cor-grafite   };
+	--cor-grafite-e1: #{$cor-grafite-e1};
+	--cor-grafite-e2: #{$cor-grafite-e2};
+	--cor-grafite-e3: #{$cor-grafite-e3};
+
+	--cor-gelo-c3: #{$cor-gelo-c3};
+	--cor-gelo-c2: #{$cor-gelo-c2};
+	--cor-gelo-c1: #{$cor-gelo-c1};
+	--cor-gelo:    #{$cor-gelo};
+	--cor-gelo-e1: #{$cor-gelo-e1};
+	--cor-gelo-e2: #{$cor-gelo-e2};
+	--cor-gelo-e3: #{$cor-gelo-e3};
+
+	/* Paleta flexível */
+
+	--cor-ceu-c3: #{$cor-ceu-c3};
+	--cor-ceu-c2: #{$cor-ceu-c2};
+	--cor-ceu-c1: #{$cor-ceu-c1};
+	--cor-ceu   : #{$cor-ceu   };
+	--cor-ceu-e1: #{$cor-ceu-e1};
+	--cor-ceu-e2: #{$cor-ceu-e2};
+	--cor-ceu-e3: #{$cor-ceu-e3};
+
+	--cor-uva-c3: #{$cor-uva-c3};
+	--cor-uva-c2: #{$cor-uva-c2};
+	--cor-uva-c1: #{$cor-uva-c1};
+	--cor-uva   : #{$cor-uva   };
+	--cor-uva-e1: #{$cor-uva-e1};
+	--cor-uva-e2: #{$cor-uva-e2};
+	--cor-uva-e3: #{$cor-uva-e3};
+
+	--cor-limao-c3: #{$cor-limao-c3};
+	--cor-limao-c2: #{$cor-limao-c2};
+	--cor-limao-c1: #{$cor-limao-c1};
+	--cor-limao   : #{$cor-limao   };
+	--cor-limao-e1: #{$cor-limao-e1};
+	--cor-limao-e2: #{$cor-limao-e2};
+	--cor-limao-e3: #{$cor-limao-e3};
+
+	--cor-tangerina-c3: #{$cor-tangerina-c3};
+	--cor-tangerina-c2: #{$cor-tangerina-c2};
+	--cor-tangerina-c1: #{$cor-tangerina-c1};
+	--cor-tangerina   : #{$cor-tangerina   };
+	--cor-tangerina-e1: #{$cor-tangerina-e1};
+	--cor-tangerina-e2: #{$cor-tangerina-e2};
+	--cor-tangerina-e3: #{$cor-tangerina-e3};
+
+	--cor-goiaba-c3: #{$cor-goiaba-c3};
+	--cor-goiaba-c2: #{$cor-goiaba-c2};
+	--cor-goiaba-c1: #{$cor-goiaba-c1};
+	--cor-goiaba   : #{$cor-goiaba   };
+	--cor-goiaba-e1: #{$cor-goiaba-e1};
+	--cor-goiaba-e2: #{$cor-goiaba-e2};
+	--cor-goiaba-e3: #{$cor-goiaba-e3};
+
+	/* Paleta semântica */
+
+	--cor-info-c3: #{$cor-info-c3};
+	--cor-info-c2: #{$cor-info-c2};
+	--cor-info-c1: #{$cor-info-c1};
+	--cor-info   : #{$cor-info   };
+	--cor-info-e1: #{$cor-info-e1};
+	--cor-info-e2: #{$cor-info-e2};
+	--cor-info-e3: #{$cor-info-e3};
+
+	--cor-sucesso-c3: #{$cor-sucesso-c3};
+	--cor-sucesso-c2: #{$cor-sucesso-c2};
+	--cor-sucesso-c1: #{$cor-sucesso-c1};
+	--cor-sucesso   : #{$cor-sucesso   };
+	--cor-sucesso-e1: #{$cor-sucesso-e1};
+	--cor-sucesso-e2: #{$cor-sucesso-e2};
+	--cor-sucesso-e3: #{$cor-sucesso-e3};
+
+	--cor-atencao-c3: #{$cor-atencao-c3};
+	--cor-atencao-c2: #{$cor-atencao-c2};
+	--cor-atencao-c1: #{$cor-atencao-c1};
+	--cor-atencao   : #{$cor-atencao   };
+	--cor-atencao-e1: #{$cor-atencao-e1};
+	--cor-atencao-e2: #{$cor-atencao-e2};
+	--cor-atencao-e3: #{$cor-atencao-e3};
+
+	--cor-perigo-c3: #{$cor-perigo-c3};
+	--cor-perigo-c2: #{$cor-perigo-c2};
+	--cor-perigo-c1: #{$cor-perigo-c1};
+	--cor-perigo   : #{$cor-perigo   };
+	--cor-perigo-e1: #{$cor-perigo-e1};
+	--cor-perigo-e2: #{$cor-perigo-e2};
+	--cor-perigo-e3: #{$cor-perigo-e3};
+
+
+	/* Paleta alternativa */
+
+	--cor-porcelana: #{$cor-porcelana};
+	--cor-polar    : #{$cor-polar};
+
+	/* Paleta auxiliar */
+
+	--cor-branco: #{$cor-branco};
+	--cor-preto : #{$cor-preto};
+
+}

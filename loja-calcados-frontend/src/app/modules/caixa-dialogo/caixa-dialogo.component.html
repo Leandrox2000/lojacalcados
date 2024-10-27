@@ -1,0 +1,15 @@
+
+    <div class="modal-header">
+      <h3 class="modal-title"><b>{{ titulo }}</b></h3>
+      <button type="button" class="bt-fechar" data-bs-dismiss="modal" aria-label="Fechar"
+              (click)="fechar()"><i
+        class="fas fa-window-close"></i></button>
+    </div>
+    <div class="modal-body">
+      <p class="m-4 text-left" [innerHTML]="mensagem" ></p>
+    </div>
+    <div class="modal-footer" style="justify-content: right;">
+      <button *ngIf="habilitarCancelar" type="button" class="bt bt-p" (click)="fechar()">{{textoBotaoCancelar}}</button>
+      <button *ngIf="habilitarConfirmar" type="button" class="bt bt-p bt-secundario" (click)="confirmar()">{{textoBotaoConfirmar}}</button>
+    </div>
+

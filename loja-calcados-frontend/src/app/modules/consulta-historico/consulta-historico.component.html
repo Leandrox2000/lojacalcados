@@ -1,0 +1,126 @@
+<main>
+  <h2>Consulta Histórico</h2>
+  <div class="search-section">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-section">
+    <mat-form-field appearance="fill">
+      <mat-label>Status da Mensagem</mat-label>
+      <mat-select formControlName="messageStatus">
+        <mat-option value="SUCESSO">SUCESSO</mat-option>
+        <mat-option value="FALHA">FALHA</mat-option>
+        <mat-option value="PROCESSANDO">PROCESSANDO</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <div>
+      <label for="initDate">Dia de Começo:</label>
+      <input formControlName="initDate" id="initDate" type="date" />
+    </div>
+  
+    <div>
+      <label for="initTime">Hora Inicial:</label>
+      <input formControlName="initTime" id="initTime" type="time" />
+    </div>
+  
+    <div>
+      <label for="endDate">Dia Final:</label>
+      <input formControlName="endDate" id="endDate" type="date" />
+    </div>
+    
+    <div>
+      <label for="endTime">Hora Final:</label>
+      <input formControlName="endTime" id="endTime" type="time" />
+    </div>
+
+    <div>
+      <label for="coIdMsg">coIdMsg:</label>
+      <input formControlName="coIdMsg" id="coIdMsg" type="text" />
+    </div>
+    
+    <button class="btn-primary consultar" mat-button type="submit">Consultar</button>
+  </form>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+      <caption>Tabela do Histórico</caption>
+      <ng-container matColumnDef="nuHistorico">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.nuHistorico}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="coIpOrigem">
+        <th mat-header-cell *matHeaderCellDef> Ip Origem </th>
+        <td mat-cell *matCellDef="let element"> {{element.coIpOrigem}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="initDataReq">
+        <th mat-header-cell *matHeaderCellDef> Data Inicial da Req </th>
+        <td mat-cell *matCellDef="let element"> {{element.initDataReq}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="initHoraReq">
+        <th mat-header-cell *matHeaderCellDef> Hora Inicial da Req </th>
+        <td mat-cell *matCellDef="let element"> {{element.initHoraReq}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDataReq">
+        <th mat-header-cell *matHeaderCellDef> Data Final da Req </th>
+        <td mat-cell *matCellDef="let element"> {{element.endDataReq}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endHoraReq">
+        <th mat-header-cell *matHeaderCellDef> Hora Final da Req </th>
+        <td mat-cell *matCellDef="let element"> {{element.endHoraReq}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="icSituacao">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.icSituacao}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deMetodo">
+        <th mat-header-cell *matHeaderCellDef> Método </th>
+        <td mat-cell *matCellDef="let element"> {{element.deMetodo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deEndpoint">
+        <th mat-header-cell *matHeaderCellDef> Endpoint </th>
+        <td mat-cell *matCellDef="let element"> {{element.deEndpoint}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tpServico">
+        <th mat-header-cell *matHeaderCellDef> Tipo de serviço </th>
+        <td mat-cell *matCellDef="let element"> {{element.tpServico}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="coServico">
+        <th mat-header-cell *matHeaderCellDef> Código de serviço </th>
+        <td mat-cell *matCellDef="let element"> {{element.coServico}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="coIdMsg">
+        <th mat-header-cell *matHeaderCellDef> coIdMsg </th>
+        <td mat-cell *matCellDef="let element"> {{element.coIdMsg}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="corpoReq">
+        <th mat-header-cell *matHeaderCellDef> XML Requisição </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button (click)="$event.stopPropagation(); openDialogReq(element)">Ver XML</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="corpoResposta">
+        <th mat-header-cell *matHeaderCellDef> XML Resposta</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button (click)="$event.stopPropagation(); openDialogResposta(element)">Ver XML</button>
+        </td>
+      </ng-container>
+      
+      <!-- Define columns to display -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row" (click)="fetchRequestHistory(element)"></tr>
+      </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" [pageSize]="pageSizeControl.value"showFirstLastButtons></mat-paginator>
+</main>

@@ -1,0 +1,143 @@
+.bt {
+	border-radius: $bc-raio-borda;
+	font-size: $bc-texto-tamanho;
+	padding: 0 $bt-padding;
+	height: $bc-tamanho;
+	font-weight: $fonte-heavy;
+	border-width: 1px;
+	border-style: solid;
+	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.16);
+}
+
+.bt:hover {
+	transform: translate(0, -2px);
+}
+
+.bt + .bt {
+	margin-left: $bt-margem;
+}
+
+.bt-g {
+	height: $bc-tamanho-g;
+	font-size: $bc-texto-tamanho-g;
+}
+
+.bt-p {
+	height: $bc-tamanho-p;
+	font-size: $bc-texto-tamanho-p;
+}
+
+.bt-xp {
+	height: $bc-tamanho-xp;
+	font-size: $bc-texto-tamanho-xp;
+	padding: 0 ($bt-padding - 8px);
+}
+
+.bt-default,
+.bt-primario,
+.bt-secundario,
+.bt-sucesso {
+	color: $cor-branco;
+}				
+
+.bt-o-default,
+.bt-o-primario,
+.bt-o-secundario,
+.bt-o-sucesso {
+	background-color: $cor-branco;
+}
+
+/*
+.bt-o-default:hover,
+.bt-o-primario:hover,
+.bt-o-secundario:hover,
+.bt-o-sucesso:hover {
+	background-color: $cor-polar;
+}
+*/
+
+.bt-default,
+.bt-o-default {
+	border-color: $cor-grafite-c2;
+}
+
+.bt-default {
+	background-color: $cor-grafite-c2;
+}
+
+.bt-default:hover {
+	background-color: $cor-grafite-c3;
+}
+
+.bt-o-default {
+	color: $cor-grafite-c2;
+}	
+
+.bt-primario,
+.bt-o-primario {
+	border-color: $cor-azul-caixa;
+}
+
+.bt-primario {
+	background-color: $cor-azul-caixa;
+}
+
+.bt-primario:hover {
+	background-color: $cor-azul-caixa-c1;
+}
+
+.bt-o-primario {
+	color: $cor-azul-caixa;
+}
+
+.bt-secundario,
+.bt-o-secundario {
+	border-color: $cor-laranja-caixa;
+}		
+
+.bt-secundario {
+	background-color: $cor-laranja-caixa;
+}
+
+.bt-secundario:hover {
+	background-color: $cor-laranja-caixa-c1;
+}
+
+.bt-o-secundario {
+	color: $cor-laranja-caixa;
+}
+
+.bt-sucesso,
+.bt-o-sucesso {
+	border-color: $cor-turquesa-e2;
+}				
+
+.bt-sucesso {
+	background-color: $cor-turquesa-e2;
+}
+
+.bt-sucesso:hover {
+	background-color: $cor-turquesa-e1;
+}
+
+.bt-o-sucesso {
+	color: $cor-turquesa-e2;
+}
+
+/* Botões especiais */
+
+.bt-voltar {
+	width: 140px;
+}
+
+.bt-link {
+	display: inline;
+	padding: 0;
+	border: none;
+	margin: 0;
+	background-color: transparent;
+}
+
+.bt-link[disabled] {
+	color: $cor-gelo-e1;
+}
