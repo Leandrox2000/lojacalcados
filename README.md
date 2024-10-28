@@ -1,6 +1,6 @@
 # Loja Calçados
 ## 😶‍🌫️ Projeto
 
-[Logo](https://t3.ftcdn.net/jpg/03/65/42/00/240_F_365420014_xjsSDkKzrhq4gr9GFzP6S97H7MJyNI5B.jpg)
+[Logo](https://static.vecteezy.com/ti/vetor-gratis/p1/7551791-design-de-logotipo-de-letra-t-moderno-e-forte-1-gratis-vetor.jpg)
 
 
