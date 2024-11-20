@@ -1,6 +1,3 @@
-import { AtributoServicoRequest } from "./atributoServicoRequest";
-import { InterfaceServicoDadosRequest } from "./interfaceServicoDadosRequest";
-
 export interface ServicoDadosRequest {
   idServicoDado: number;
   nomeServicoDado: string;
@@ -13,6 +10,4 @@ export interface ServicoDadosRequest {
   limiteAcessoMassa: number;
   ambientes: number[];
   tiposCadastramento: number[];
-  interfaces:InterfaceServicoDadosRequest[];
-  atributoServicos: AtributoServicoRequest[];
 }
