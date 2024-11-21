@@ -1,0 +1,26 @@
+<header>
+  <div class="navbar show-menu">
+    <div class="header-inner-content">
+      <h1>
+        <img
+          class="logo"
+          src="assets/images/logotipo-de-letra-t-moderno-e-forte-1-gratis-vetor.jpg"
+          alt=""
+        />
+      </h1>
+      <nav>
+        <ul>
+          <a [routerLink]="['/home']"><li>Início</li></a>
+          <a [routerLink]="['/produtos']"><li>Produtos</li></a>
+          <a [routerLink]="['/sobre']"><li>Sobre</li></a>
+          <a [routerLink]="['/contato']"><li>Contato</li></a>
+          <a [routerLink]="['/conta']"><li>Conta</li></a>
+        </ul>
+      </nav>
+      <div class="nav-icon-container">
+        <a [routerLink]="['/carrinho']"><img src="assets/images/cart.png" alt="" /></a>
+        <img src="assets/images/menu.png" class="menu-button" alt="" />
+      </div>
+    </div>
+  </div>
+</header>

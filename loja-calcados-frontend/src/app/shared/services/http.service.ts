@@ -4,7 +4,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { KeycloakService } from 'keycloak-angular';
 import { MessageService } from 'src/app/core/services/message.service';
 
 @Injectable({
@@ -15,8 +14,7 @@ export class HttpService {
   msgErroPadrao = 'Ocorreu um erro ao realizar a requisição ao servidor. Se o problema persistir, entre em contato com a área responsável pelo sistema.';
 
   constructor(private http: HttpClient,
-              private messageService: MessageService,
-              protected readonly keycloakService: KeycloakService) {
+              private messageService: MessageService) {
   }
 
   delete(url): Observable<any> {

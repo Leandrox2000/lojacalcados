@@ -1,15 +1,15 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { MessageService } from "src/app/core/services/message.service";
+import { Router, ActivatedRoute } from "@angular/router";
 import { HttpService } from "src/app/shared/services/http.service";
+import { MessageService } from "../../services/message.service";
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
+  selector: "app-produtos",
+  templateUrl: "./produtos.component.html",
+  styleUrls: ["./produtos.component.scss"],
 })
-export class HomeComponent {
+export class ProdutosComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private service: HttpService,
@@ -22,4 +22,6 @@ export class HomeComponent {
     // sessionStorage.clear();
     this.router.navigateByUrl("/listar-massa");
   }
+
+  ngOnInit(): void {}
 }
