@@ -26,13 +26,13 @@ public class UsuariosController {
     private UsuariosService usuariosService;
 
     @GetMapping("/{id}")
-    @ApiOperation("findById")
+    @ApiOperation("buscar")
     public Usuarios findById(@ApiParam("ID") @PathVariable("id") Integer id) {
         return usuariosService.findById(id);
     }
 
-    @GetMapping
-    @ApiOperation("findAll")
+    @GetMapping("/listar")
+    @ApiOperation("listar")
     public ResponseEntity<Object> findAll() {
         List<Usuarios> retorno;
         try {
@@ -45,19 +45,19 @@ public class UsuariosController {
     }
 
     @PostMapping
-    @ApiOperation("insert")
+    @ApiOperation("inserir")
     public void insert(@RequestBody Usuarios usuario) {
         usuariosService.insert(usuario);
     }
 
     @PutMapping
-    @ApiOperation("update")
+    @ApiOperation("atualizar")
     public void update(@RequestBody Usuarios usuario) {
         usuariosService.update(usuario);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("deleteById")
+    @ApiOperation("deletar")
     public void deleteById(@ApiParam("ID") @PathVariable("id") Integer id) {
         usuariosService.deleteById(id);
     }

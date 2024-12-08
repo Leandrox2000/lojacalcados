@@ -25,13 +25,13 @@ public class HistoricoComprasController {
     private HistoricoComprasService historicoComprasService;
 
     @GetMapping("/{id}")
-    @ApiOperation("findById")
+    @ApiOperation("buscar")
     public HistoricoCompras findById(@ApiParam("ID") @PathVariable("id") Integer id) {
         return historicoComprasService.findById(id);
     }
 
-    @GetMapping
-    @ApiOperation("findAll")
+    @GetMapping("/listar")
+    @ApiOperation("listar")
     public ResponseEntity<Object> findAll() {
         List<HistoricoCompras> retorno;
         try {
@@ -44,19 +44,19 @@ public class HistoricoComprasController {
     }
 
     @PostMapping
-    @ApiOperation("insert")
+    @ApiOperation("inserir")
     public void insert(@RequestBody HistoricoCompras historicoCompras) {
         historicoComprasService.insert(historicoCompras);
     }
 
     @PutMapping
-    @ApiOperation("update")
+    @ApiOperation("atualizar")
     public void update(@RequestBody HistoricoCompras historicoCompras) {
         historicoComprasService.update(historicoCompras);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("deleteById")
+    @ApiOperation("deletar")
     public void deleteById(@ApiParam("ID") @PathVariable("id") Integer id) {
         historicoComprasService.deleteById(id);
     }

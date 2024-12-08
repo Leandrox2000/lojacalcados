@@ -25,13 +25,13 @@ public class CategoriasController {
     private CategoriasService categoriasService;
 
     @GetMapping("/{id}")
-    @ApiOperation("findById")
+    @ApiOperation("buscar")
     public Categorias findById(@ApiParam("ID") @PathVariable("id") Integer id) {
         return categoriasService.findById(id);
     }
 
-    @GetMapping
-    @ApiOperation("findAll")
+    @GetMapping("/listar")
+    @ApiOperation("listar")
     public ResponseEntity<Object> findAll() {
         List<Categorias> retorno;
         try {
@@ -44,19 +44,19 @@ public class CategoriasController {
     }
 
     @PostMapping
-    @ApiOperation("insert")
+    @ApiOperation("inserir")
     public void insert(@RequestBody Categorias categorias) {
         categoriasService.insert(categorias);
     }
 
     @PutMapping
-    @ApiOperation("update")
+    @ApiOperation("atualizar")
     public void update(@RequestBody Categorias categorias) {
         categoriasService.update(categorias);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("deleteById")
+    @ApiOperation("deletar")
     public void deleteById(@ApiParam("ID") @PathVariable("id") Integer id) {
         categoriasService.deleteById(id);
     }

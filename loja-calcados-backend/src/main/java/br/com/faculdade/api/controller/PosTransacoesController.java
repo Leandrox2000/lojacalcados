@@ -25,13 +25,13 @@ public class PosTransacoesController {
     private PosTransacoesService posTransacoesService;
 
     @GetMapping("/{id}")
-    @ApiOperation("findById")
+    @ApiOperation("buscar")
     public PosTransacoes findById(@ApiParam("ID") @PathVariable("id") Integer id) {
         return posTransacoesService.findById(id);
     }
 
-    @GetMapping
-    @ApiOperation("findAll")
+    @GetMapping("/listar")
+    @ApiOperation("listar")
     public ResponseEntity<Object> findAll() {
         List<PosTransacoes> retorno;
         try {
@@ -44,19 +44,19 @@ public class PosTransacoesController {
     }
 
     @PostMapping
-    @ApiOperation("insert")
+    @ApiOperation("inserir")
     public void insert(@RequestBody PosTransacoes posTransacoes) {
         posTransacoesService.insert(posTransacoes);
     }
 
     @PutMapping
-    @ApiOperation("update")
+    @ApiOperation("atualizar")
     public void update(@RequestBody PosTransacoes posTransacoes) {
         posTransacoesService.update(posTransacoes);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("deleteById")
+    @ApiOperation("deletar")
     public void deleteById(@ApiParam("ID") @PathVariable("id") Integer id) {
         posTransacoesService.deleteById(id);
     }

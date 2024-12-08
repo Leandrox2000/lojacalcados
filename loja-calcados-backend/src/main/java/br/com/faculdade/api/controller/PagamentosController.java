@@ -25,13 +25,13 @@ public class PagamentosController {
     private PagamentosService pagamentosService;
 
     @GetMapping("/{id}")
-    @ApiOperation("findById")
+    @ApiOperation("buscar")
     public Pagamentos findById(@ApiParam("ID") @PathVariable("id") Integer id) {
         return pagamentosService.findById(id);
     }
 
-    @GetMapping
-    @ApiOperation("findAll")
+    @GetMapping("/listar")
+    @ApiOperation("listar")
     public ResponseEntity<Object> findAll() {
         List<Pagamentos> retorno;
         try {
@@ -44,19 +44,19 @@ public class PagamentosController {
     }
 
     @PostMapping
-    @ApiOperation("insert")
+    @ApiOperation("inserir")
     public void insert(@RequestBody Pagamentos pagamentos) {
         pagamentosService.insert(pagamentos);
     }
 
     @PutMapping
-    @ApiOperation("update")
+    @ApiOperation("atualizar")
     public void update(@RequestBody Pagamentos pagamentos) {
         pagamentosService.update(pagamentos);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("deleteById")
+    @ApiOperation("deletar")
     public void deleteById(@ApiParam("ID") @PathVariable("id") Integer id) {
         pagamentosService.deleteById(id);
     }

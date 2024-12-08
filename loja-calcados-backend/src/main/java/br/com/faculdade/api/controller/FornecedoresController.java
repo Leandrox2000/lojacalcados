@@ -25,13 +25,13 @@ public class FornecedoresController {
     private FornecedoresService fornecedoresService;
 
     @GetMapping("/{id}")
-    @ApiOperation("findById")
+    @ApiOperation("buscar")
     public Fornecedores findById(@ApiParam("ID") @PathVariable("id") Integer id) {
         return fornecedoresService.findById(id);
     }
 
-    @GetMapping
-    @ApiOperation("findAll")
+    @GetMapping("/listar")
+    @ApiOperation("listar")
     public ResponseEntity<Object> findAll() {
         List<Fornecedores> retorno;
         try {
@@ -44,19 +44,19 @@ public class FornecedoresController {
     }
 
     @PostMapping
-    @ApiOperation("insert")
+    @ApiOperation("inserir")
     public void insert(@RequestBody Fornecedores fornecedores) {
         fornecedoresService.insert(fornecedores);
     }
 
     @PutMapping
-    @ApiOperation("update")
+    @ApiOperation("atualizar")
     public void update(@RequestBody Fornecedores fornecedores) {
         fornecedoresService.update(fornecedores);
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation("deleteById")
+    @ApiOperation("deletar")
     public void deleteById(@ApiParam("ID") @PathVariable("id") Integer id) {
         fornecedoresService.deleteById(id);
     }
