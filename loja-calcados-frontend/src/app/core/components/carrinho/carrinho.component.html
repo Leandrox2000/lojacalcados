@@ -1,1 +1,196 @@
-<p>carrinho works!</p>
+<div class="carrinho-container">
+  <h2>Carrinho de Compras</h2>
+
+  <table class="tabela-carrinho">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Qtd.</th>
+        <th>Preço</th>
+        <th>Subtotal</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img
+            src="assets/images/stand-4-4.jpg"
+            alt="Tênis Nike"
+            class="imagem-produto"
+          />
+          <div class="descricao-produto">
+            <h3 class="produto-nome">Tênis Hocks Tempus</h3>
+            <p>Cor: Preto/Branco<br />Tamanho: 42<br /></p>
+            <span class="em-estoque">Em estoque</span>
+          </div>
+        </td>
+        <td>
+          <input
+            type="number"
+            value="1"
+            min="1"
+            class="quantidade"
+            onchange="atualizarSubtotal(this)"
+          />
+        </td>
+        <td class="preco" data-preco="429.99">R$ 429,99</td>
+        <td class="subtotal-item">R$ 429,99</td>
+        <td>
+          <button class="botao-excluir" onclick="excluirItem(this)">
+            &times;
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img
+            src="assets/images/stand-2.jpg"
+            alt="Sandália"
+            class="imagem-produto"
+          />
+          <div class="descricao-produto">
+            <h3 class="produto-nome">Tênis Hocks Puff</h3>
+            <p>Cor: Bege<br />Tamanho: 36<br /></p>
+            <span class="em-estoque">Em estoque</span>
+          </div>
+        </td>
+        <td>
+          <input
+            type="number"
+            value="1"
+            min="1"
+            class="quantidade"
+            onchange="atualizarSubtotal(this)"
+          />
+        </td>
+        <td class="preco" data-preco="349.99">R$ 349,99</td>
+        <td class="subtotal-item">R$ 349,99</td>
+        <td>
+          <button class="botao-excluir" onclick="excluirItem(this)">
+            &times;
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="acoes-carrinho">
+    <button class="limpar-carrinho" onclick="limparCarrinho()">
+      Limpar carrinho
+    </button>
+    <a [routerLink]="['/produtos']"
+      ><button class="mais-produtos">Escolher mais produtos</button></a
+    >
+  </div>
+
+  <div class="resumo-carrinho">
+    <div class="subtotal--geral">
+      <span>Subtotal:</span>
+      <span id="subtotal-geral">R$ 0,00</span>
+    </div>
+    <div class="frete">
+      <span>Frete:</span>
+      <span id="valor-frete">R$ 0,00</span>
+    </div>
+    <div class="total">
+      <span>Total do pedido:</span>
+      <span id="total-geral">R$ 0,00</span>
+    </div>
+
+    <div class="opcoes-frete">
+      <h4>Envio</h4>
+      <label
+        ><input
+          type="radio"
+          name="frete"
+          value="0"
+          checked
+          onchange="atualizarFrete()"
+        />
+        PAC - GRÁTIS (8 dias)</label
+      >
+      <label
+        ><input
+          type="radio"
+          name="frete"
+          value="0"
+          onchange="atualizarFrete()"
+        />
+        Retirar na loja - GRÁTIS</label
+      >
+      <label
+        ><input
+          type="radio"
+          name="frete"
+          value="10.00"
+          onchange="atualizarFrete()"
+        />
+        SEDEX - R$ 10,00 (5 dias)</label
+      >
+    </div>
+
+    <a [routerLink]="['/pagamento']"
+      ><button class="fechar-pedido">Fechar pedido</button></a
+    >
+  </div>
+</div>
+<script>
+  function atualizarSubtotal(elemento) {
+    const quantidade = parseInt(elemento.value);
+    const precoElemento = elemento.parentElement.nextElementSibling;
+    const preco = parseFloat(precoElemento.getAttribute("data-preco"));
+    const subtotalElemento = precoElemento.nextElementSibling;
+    const subtotal = quantidade * preco;
+    subtotalElemento.textContent = `R$ ${subtotal.toFixed(2)}`;
+    atualizarTotalGeral();
+  }
+
+  function atualizarFrete() {
+    const freteSelecionado = document.querySelector(
+      'input[name="frete"]:checked'
+    );
+    const valorFrete = parseFloat(freteSelecionado.value);
+    document.getElementById("valor-frete").textContent = `R$ ${valorFrete
+      .toFixed(2)
+      .replace(".", ",")}`;
+    atualizarTotalGeral();
+  }
+
+  function atualizarTotalGeral() {
+    let total = 0;
+    const subtotais = document.querySelectorAll(".subtotal-item");
+    subtotais.forEach((subtotal) => {
+      const valor = parseFloat(
+        subtotal.textContent.replace("R$ ", "").replace(",", ".")
+      );
+      total += valor;
+    });
+
+    const frete = parseFloat(
+      document.querySelector('input[name="frete"]:checked').value
+    );
+    const totalComFrete = total + frete;
+
+    document.getElementById("subtotal-geral").textContent = `R$ ${total
+      .toFixed(2)
+      .replace(".", ",")}`;
+    document.getElementById("total-geral").textContent = `R$ ${totalComFrete
+      .toFixed(2)
+      .replace(".", ",")}`;
+  }
+
+  function excluirItem(botao) {
+    const linha = botao.parentElement.parentElement;
+    linha.remove();
+    atualizarTotalGeral();
+  }
+
+  function limparCarrinho() {
+    const linhas = document.querySelectorAll(".tabela-carrinho tbody tr");
+    linhas.forEach((linha) => linha.remove());
+    atualizarTotalGeral();
+  }
+
+  window.onload = atualizarFrete;
+</script>

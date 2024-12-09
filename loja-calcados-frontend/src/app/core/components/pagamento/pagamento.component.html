@@ -1,1 +1,83 @@
-<p>pagamento works!</p>
+<div class="container">
+  <h2 class="pagamento-oi">Pagamento</h2>
+  <div class="subtitle-underline"></div>
+  <br />
+  <div class="section">
+    <h3>Dados Pessoais</h3>
+    <label for="email">Email:</label>
+    <input placeholder="E-mail" type="email" id="email" name="email" required />
+    <label for="phone">Telefone:</label>
+    <input placeholder="Telefone" type="tel" id="phone" name="phone" required />
+  </div>
+  <div class="section">
+    <h3>Endereço de Entrega</h3>
+    <label for="name">Nome Completo:</label>
+    <input
+      placeholder="Nome Completo"
+      type="text"
+      id="name"
+      name="name"
+      required
+    />
+    <label for="address">Endereço:</label>
+    <input
+      placeholder="Endereço"
+      type="text"
+      id="address"
+      name="address"
+      required
+    />
+    <label for="city">Cidade:</label>
+    <input placeholder="Cidade" type="text" id="city" name="city" required />
+    <label for="state">Estado:</label>
+    <select id="state" name="state" required>
+      <option value="">Selecione o estado</option>
+      <option value="SP">São Paulo</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="MG">Minas Gerais</option>
+    </select>
+    <label for="zip">CEP:</label>
+    <input placeholder="CEP" type="text" id="zip" name="zip" required />
+  </div>
+  <div class="section">
+    <h3>Método de Pagamento</h3>
+    <label for="payment-method">Forma de Pagamento:</label>
+    <select id="payment-method" name="payment-method" required>
+      <option value="credit-card">Cartão de Crédito</option>
+      <option value="debit-card">Cartão de Débito</option>
+      <option value="boleto">Boleto Bancário</option>
+      <option value="boleto">Pix</option>
+    </select>
+    <label for="card-number">Número do Cartão:</label>
+    <input
+      placeholder="Número do Cartão"
+      type="text"
+      id="card-number"
+      name="card-number"
+      required
+    />
+    <label for="card-expiry">Data de Validade:</label>
+    <input
+      type="text"
+      id="card-expiry"
+      name="card-expiry"
+      placeholder="MM/AA"
+      required
+    />
+    <label for="card-cvv">CVV:</label>
+    <input
+      placeholder="CVV"
+      type="text"
+      id="card-cvv"
+      name="card-cvv"
+      required
+    />
+  </div>
+  <div class="section order-summary">
+    <h3>Resumo do Pedido</h3>
+    <p>Tênis Hocks Puff - R$ 349,99</p>
+    <p>Tênis Hocks Tempus - R$ 429,99</p>
+    <p class="total">Total: R$ 779,98</p>
+  </div>
+  <button type="submit" class="checkout-button" [routerLink]="['/home']">Finalizar Compra</button>
+</div>
