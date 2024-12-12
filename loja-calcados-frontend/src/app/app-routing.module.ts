@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "src/app/modules/home/home.component";
-import { ListaMassaComponent } from "./core/components/listaMassa/listaMassa.component";
 import { ProdutosComponent } from "./core/components/produtos/produtos.component";
 import { SobreComponent } from "./core/components/sobre/sobre.component";
 import { ContatoComponent } from "./core/components/contato/contato.component";
@@ -15,10 +14,6 @@ const routes: Routes = [
     path: "",
     redirectTo: "/home",
     pathMatch: "full",
-  },
-  {
-    path: "listar-massa",
-    component: ListaMassaComponent,
   },
   {
     path: "home",

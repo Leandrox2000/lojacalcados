@@ -1,4 +1,3 @@
-import { ListaMassaComponent } from "./core/components/listaMassa/listaMassa.component";
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import localePt from "@angular/common/locales/pt";
@@ -61,7 +60,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AppComponent,
     HeaderComponent,
     appRoutes,
-    ListaMassaComponent,
     HomeComponent,
     FooterComponent,
     ProdutosComponent,
