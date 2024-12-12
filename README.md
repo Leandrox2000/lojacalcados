@@ -15,6 +15,7 @@ adquiridas durante o curso de forma integrada, visando uma melhor experiência d
 ## Requisitos necessários para o funcionamento do Sistema
 
 Em ambas pastas se encontra um README com as explicações necessárias para o seu funcionamento.
+O banco de dados foi feito em MySQL sendo obtido gratuitamente em https://dev.mysql.com/downloads/installer/
 Em caso de dúvidas. Entre em contato conosco.
 
 ## Contato
